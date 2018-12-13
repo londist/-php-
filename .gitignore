@@ -2,3 +2,4 @@ phpinfo.php
 phpmyadmin/
 .uini
 up-rewrite.conf
+node_modules/
