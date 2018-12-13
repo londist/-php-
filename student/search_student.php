@@ -19,25 +19,31 @@ $row = mysql_fetch_array($result);
 if (! $row)
     die ("没有该学号的学生信息!");
 mysql_close($db);
+include ("../template/template.html");
 ?>
-
-<html>
-    <head>
-        <title>学生信息</title>
-        <style type="text/css" media="screen">
-            body{margin:0px; padding:0px; background:#f3f3f3; text-align:center;}
-            #main {width:600px; background:white; margin:0 auto; margin-top:30px; padding:10px; text-align:center;}
-            #main {-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius:10px; }
-            td {border-bottom:1px dashed #ccc; padding:5px 25px; text-align:center;}
-        </style>
-    </head>
-    <body>
-        <div id="main">
-            <h3>学生信息</h3>
-            <table >
-                <tr><th>学号</th><th>姓名</th><th>性别</th><th>电话</th><th>操作</th></tr>
+<section class="content-header"><h1>学生信息</h1></section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-hover">
+                        <tr>
+                            <th>学号</th>
+                            <th>姓名</th>
+                            <th>性别</th>
+                            <th>电话</th>
+                            <th>操作</th>
+                        </tr>
 <?php
-    echo "<tr><td>".$row['sid'] ."</td><td>". $row['name'] ."</td><td>". $row['sex'] ."</td><td>". $row['tel'] ."</td><td><a href=del_student.php?sid=" . $row['sid'] . " onclick=\"return confirm('确定删除?');\">删除</a></td></tr>";
+echo "<tr><td>".$row['sid'] ."</td><td>". $row['name'] ."</td><td>". $row['sex'] ."</td><td>". $row['tel'] ."</td><td><a href=del_student.php?sid=" . $row['sid'] . " onclick=\"return confirm('确定删除?');\">删除</a></td></tr>";
 ?>
-</table>
-
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<?php
+include ("../template/tail.html");
+?>

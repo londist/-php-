@@ -5,7 +5,7 @@ handle_login();
 utf8();
 
 if (!isset($_POST['id']) or ! isset($_POST['money']))
-    die ("输入的编号和金额都不能为空! <br>");
+    die("输入的编号和金额都不能为空! <br>");
 
 $id = remove_unsafe_char($_POST['id']);
 $money = floatval(remove_unsafe_char($_POST['money']));
@@ -17,11 +17,7 @@ if (! $row)
 $sql = "update custom set cur_money = $money  where cid='$id'";
 $result = mysql_query($sql,$db);
 if (! $result)
-    die ("修改失败!");
+    die("修改失败!");
 
-echo "修改数据成功！";
 $url = referer("m-custom.php");
-echo "<a href=$url >返回</a>";
-?>
-
-
+echo "<script>alert('修改数据成功！');location='$url'</script>";

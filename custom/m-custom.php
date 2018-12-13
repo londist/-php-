@@ -4,26 +4,55 @@ handle_login();
 utf8();
 include ("../template/template.html");
 ?>
-<div id="main">
-    <p><a href="show_custom.php">列出所有消费者信息</a></p>
+<section class="content-header"><h1>消费者管理</h1></section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">查找</h3>
+                </div>
+                <form action="search_custom.php" method="get">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="id">查找消费者 编号：</label>
+                            <input type="text" name="id" class="form-control">
+                        </div>
+                    </div>
+                    <div class="box-footer">
+                        <input type="submit" class="btn btn-primary" value="查找">
+                        <a class="btn btn-primary pull-right" href="show_custom.php">
+                            列出所有消费者信息
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
 
-    <form action="search_custom.php" method="get" >
-        <p>查找消费者 编号:<input type="text" name="id" value="">
-        <input type="submit" value="Search"></p>
-    </form>
-
-    <form action="add_custom.php" method="post" >
-        <p>
-        添加一个消费者<br />
-        编号<input type="text" name="id" value="" size=8>
-        金额(元)<input type="text" name="money" value="" size=8>
-        <input type="submit" value="添加消费者"> <input type="reset" value="清空">
-        </p>
-    </form>
-</div>
+        <div class="col-md-12">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">添加一个消费者</h3>
+                </div>
+                <form action="add_custom.php" method="post">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="id">编号</label>
+                            <input type="text" name="id" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="name">金额（元）</label>
+                            <input type="text" name="money" class="form-control">
+                        </div>
+                    </div>
+                    <div class="box-footer">
+                        <input type="submit" class="btn btn-primary" value="添加消费者">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 <?php
 include ("../template/tail.html");
 ?>
-
-
-

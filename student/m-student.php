@@ -42,11 +42,11 @@ include ("../template/template.html");
                         </div>
                         <div class="form-group">
                             <label for="name">姓名</label>
-                            <input type="text" name="id" class="form-control">
+                            <input type="text" name="name" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="tel">电话</label>
-                            <input type="text" name="id" class="form-control">
+                            <input type="text" name="tel" class="form-control">
                         </div>
                         <div class="form-control">
                             <label for="sex">性别</label>
@@ -65,5 +65,3 @@ include ("../template/template.html");
 <?php
 include ("../template/tail.html");
 ?>
-
-

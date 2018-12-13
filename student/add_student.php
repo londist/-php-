@@ -1,5 +1,5 @@
-﻿<?php 
-include ("../conn.php"); 
+﻿<?php
+include ("../conn.php");
 include ("../util.php");
 handle_login();
 
@@ -23,9 +23,8 @@ if (isset($_POST['id']) and isset($_POST['name']) ){
     if (! $result)
         die ("添加学生信息失败<br/>" . mysql_error());
     else{
-        echo "成功添加一个学生信息!<br/>";
-        echo "<a href='m-student.php'>返回</a>";
-    } 
+        echo "<script>alert('成功添加一个学生信息!');location='./m-student.php'</script>";
+    }
 }
 
 

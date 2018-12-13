@@ -17,8 +17,7 @@ $result = mysql_query($sql,$db);
 if (! $result)
     die("删除失败!<br/>");
 else{
-    echo "删除成功<br/>";
-    echo "<a href='m-student.php'>返回</a>";
+    echo "<script>alert('删除成功');location='./m-student.php'</script>";
 }
 mysql_close($db);
 
