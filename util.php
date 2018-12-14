@@ -21,7 +21,7 @@ function is_admin()
 
 function to_login()
 {
-    Header("Location: /login.html");
+    Header("Location: /auth/login.html");
     exit;
 }
 function handle_login()
@@ -35,7 +35,7 @@ function m1_login()
 {
     session_start();
     if (!isset($_SESSION['m1']) and !isset($_SESSION['admin'])) {
-        Header("Location: /login.html");
+        Header("Location: /auth/login.html");
         exit;
     }
 }
@@ -44,7 +44,7 @@ function m2_login()
 {
     session_start();
     if (!isset($_SESSION['m2']) and !isset($_SESSION['admin'])) {
-        Header("Location: /login.html");
+        Header("Location: auth/login.html");
         exit;
     }
 }

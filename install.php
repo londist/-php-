@@ -156,5 +156,5 @@ function add_admin()
 
 add_admin();
 ?>
-<br/><a href="login.html">登录</a>
+<br/><a href="/auth/login.html">登录</a>
 
