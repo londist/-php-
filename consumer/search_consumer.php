@@ -1,14 +1,27 @@
-<?php
+﻿<?php
 include ("../conn.php");
 include ("../util.php");
 handle_login();
-header("Content-type: text/html; charset=utf-8");
+header("Content-Type:text/html; charset=utf-8");
 
-$sql = "select * from student,custom where custom.cid=student.sid";
+if(! isset($_GET['id']))
+    die ("请添加编号<br>");
+
+$id = $_GET['id'];
+$id = remove_unsafe_char($id);
+
+$sql = "select * from student,consumer where sid='$id' and sid=cid";
 $result = mysql_query($sql,$db);
+if (!$result)
+    die("查找消费者信息失败!<br>" . mysql_error());
+
+$row = mysql_fetch_array($result);
+if (! $row)
+    die("没有该消费者的信息!");
+mysql_close($db);
 include ("../template/template.html");
 ?>
-<section class="content-header"><h1>所有消费者信息</h1></section>
+<section class="content-header"><h1>消费者信息</h1></section>
 <section class="content">
     <div class="row">
         <div class="col-md-12">
@@ -24,10 +37,7 @@ include ("../template/template.html");
                             <th>操作</th>
                         </tr>
 <?php
-while ($row = mysql_fetch_array($result)) {
-    echo "<tr><td>".$row['sid'] ."</td><td>". $row['name'] ."</td><td>". $row['sex'] ."</td><td>". $row['tel'] ."</td><td>". $row['cur_money'] ."</td><td><a href=edit_custom.php?sid=" . $row['sid'] . ">编辑</a></td></tr>";
-}
-mysql_close($db);
+echo "<tr><td>".$row['sid'] ."</td><td>". $row['name'] ."</td><td>". $row['sex'] ."</td><td>". $row['tel'] ."</td><td>". $row['cur_money'] ."</td><td><a href=edit_consumer.php?sid=" . $row['sid'] . ">编辑</a></td></tr>";
 ?>
                     </table>
                 </div>

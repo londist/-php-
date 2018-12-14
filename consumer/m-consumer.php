@@ -12,7 +12,7 @@ include ("../template/template.html");
                 <div class="box-header with-border">
                     <h3 class="box-title">查找</h3>
                 </div>
-                <form action="search_custom.php" method="get">
+                <form action="search_consumer.php" method="get">
                     <div class="box-body">
                         <div class="form-group">
                             <label for="id">查找消费者 编号：</label>
@@ -21,7 +21,7 @@ include ("../template/template.html");
                     </div>
                     <div class="box-footer">
                         <input type="submit" class="btn btn-primary" value="查找">
-                        <a class="btn btn-primary pull-right" href="show_custom.php">
+                        <a class="btn btn-primary pull-right" href="show_consumer.php">
                             列出所有消费者信息
                         </a>
                     </div>
@@ -34,7 +34,7 @@ include ("../template/template.html");
                 <div class="box-header with-border">
                     <h3 class="box-title">添加一个消费者</h3>
                 </div>
-                <form action="add_custom.php" method="post">
+                <form action="add_consumer.php" method="post">
                     <div class="box-body">
                         <div class="form-group">
                             <label for="id">编号</label>

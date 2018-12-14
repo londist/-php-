@@ -6,7 +6,7 @@ m1_login();
 utf8();
 $sql_mate = "select * from material";
 $sql_supp = "select * from supply";
-$sql_work = "select * from worker";
+$sql_work = "select * from staff";
 
 $result_1 = mysql_query($sql_mate,$db);
 $result_2 = mysql_query($sql_supp,$db);

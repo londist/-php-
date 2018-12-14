@@ -32,7 +32,7 @@ if (! $arr){
         case 2:
             $_SESSION['user'] = $username;
             $_SESSION['m2'] = 1;
-            Header("Location: /add_custom/showall_custom_record.php");
+            Header("Location: /consumption_record/showall_consumption_record.php");
         default:
             echo "权限出错";
             break;

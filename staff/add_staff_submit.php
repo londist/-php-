@@ -20,10 +20,10 @@ $name = remove_unsafe_char($name);
 $sex = remove_unsafe_char($sex);
 $jid = intval(remove_unsafe_char($jid));
 
-$sql = "insert into worker (name,sex,jid) values ('$name','$sex',$jid)";
+$sql = "insert into staff (name,sex,jid) values ('$name','$sex',$jid)";
 $result = mysql_query($sql,$db);
 if (! $result)
     die("添加工人失败" . mysql_erro());
 
-echo "<script>alert('成功添加一个工人');location='./m-worker.php'</script>";
+echo "<script>alert('成功添加一个工人');location='./m-staff.php'</script>";
 mysql_close($db);

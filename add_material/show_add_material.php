@@ -4,7 +4,7 @@ include ("../util.php");
 m1_login();
 utf8();
 
-$sql = "select add_material.price amprice,account,, from add_material,material,supply,worker where add_material.mid=material.mid and add_material.sid=supply.sid and add_material.charge=worker.wid ";
+$sql = "select add_material.price amprice,account,, from add_material,material,supply,staff where add_material.mid=material.mid and add_material.sid=supply.sid and add_material.charge=staff.wid ";
 
 $sql2 = "select * from add_material,material where material.mid=add_material.mid";
 $result = mysql_query($sql2,$db);
@@ -46,7 +46,7 @@ else :
 <?php
 $n = 1;
 while ($row=mysql_fetch_array($result)){
-    printf ("<tr><td>%s</td><td>%s</td><td><a href='../supply/show_supply.php?id=%s'>%s</a></td><td><a href='../worker/search_worker.php?id=%s'>%s</a></td><td>%s</td><td>%s</td><td>%s</td><tr>",$n,$row['name'],$row['sid'],$row['sid'],$row['charge'],$row['charge'],$row['price'],$row['amount'],$row['add_time']);
+    printf ("<tr><td>%s</td><td>%s</td><td><a href='../supply/show_supply.php?id=%s'>%s</a></td><td><a href='../staff/search_staff.php?id=%s'>%s</a></td><td>%s</td><td>%s</td><td>%s</td><tr>",$n,$row['name'],$row['sid'],$row['sid'],$row['charge'],$row['charge'],$row['price'],$row['amount'],$row['add_time']);
     $n = $n+1;
 }
 mysql_close($db);

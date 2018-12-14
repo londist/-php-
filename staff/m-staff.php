@@ -4,7 +4,7 @@ include ("../util.php");
 handle_login();
 utf8();
 
-$sql = "select wid,name from worker";
+$sql = "select wid,name from staff";
 $result = mysql_query ($sql,$db);
 if (! $result)
     die("查询工人数据库失败! " . mysql_error());
@@ -24,7 +24,7 @@ include ("../template/template.html");
                 <div class="icon">
                     <i class="fa fa-male"></i>
                 </div>
-                <a href="add_worker.php" class="small-box-footer">添加工人信息 <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="add_staff.php" class="small-box-footer">添加工人信息 <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
     </div>
@@ -32,7 +32,7 @@ include ("../template/template.html");
         <div class="col-md-12">
             <div class="box box-primary">
                 <div class="box-header with-border">查找工人信息</div>
-                <form action="search_worker.php" method="get">
+                <form action="search_staff.php" method="get">
                     <div class="box-body">
                         <div class="form-group">
                             <label for="id">姓名或编号</label>
@@ -58,10 +58,10 @@ include ("../template/template.html");
                         </tr>
 <?php
 while ($row = mysql_fetch_array($result)) {
-    echo "<tr><td><a href=search_worker.php?id=".$row['wid'] .">" .
+    echo "<tr><td><a href=search_staff.php?id=".$row['wid'] .">" .
         $row['wid'] ."</a></td><td>".
-        $row['name'] ."</td><td><a onclick=\"return confirm('确定删除?'); \" href='del_worker.php?id=" .
-        $row['wid'] ."'>删除</a> &nbsp;<a href='edit_worker.php?id=" .
+        $row['name'] ."</td><td><a onclick=\"return confirm('确定删除?'); \" href='del_staff.php?id=" .
+        $row['wid'] ."'>删除</a> &nbsp;<a href='edit_staff.php?id=" .
         $row['wid'] ."'>编辑</a></td></tr>";
 }
 mysql_close($db);

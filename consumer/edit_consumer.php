@@ -9,7 +9,7 @@ if (! isset($_GET['sid']))
     die("请输入学号!");
 
 $sid = remove_unsafe_char($_GET['sid']);
-$row = mysql_fetch_array(mysql_query("select * from custom,student where cid='$sid' and sid='$sid'"));
+$row = mysql_fetch_array(mysql_query("select * from consumer,student where cid='$sid' and sid='$sid'"));
 if (! $row)
     die("不存在学号为 $sid  的学生!<br/>");
 
@@ -22,7 +22,7 @@ include ("../template/template.html");
         <div class="col-md-12">
             <div class="box box-primary">
                 <div class="box-header with-border">编辑</div>
-                <form action="edit_save_custom.php" method="post">
+                <form action="edit_save_consumer.php" method="post">
                     <div class="box-body">
                         <div class="form-group">
                             <label>编号</label>

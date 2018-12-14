@@ -24,10 +24,10 @@ $name = remove_unsafe_char($name);
 $sex = remove_unsafe_char($sex);
 $jid = intval(remove_unsafe_char($jid));
 
-$sql = "update worker set name='$name',sex='$sex',jid=$jid where wid=$id";
+$sql = "update staff set name='$name',sex='$sex',jid=$jid where wid=$id";
 $result = mysql_query($sql,$db);
 if (! $result)
     die("修改工人信息失败" . mysql_erro());
 
-echo "<script>alert('成功修改工人信息');location='./m-worker.php'</script>";
+echo "<script>alert('成功修改工人信息');location='./m-staff.php'</script>";
 mysql_close($db);

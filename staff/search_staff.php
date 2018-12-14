@@ -8,9 +8,9 @@ if (! isset($_GET['id']))
     die ("查询工人信息，姓名或编号不能为空");
 $id = remove_unsafe_char($_GET['id']);
 if (is_numeric($id))
-    $sql = "select wid,worker.name wname,sex,jobs.name jname,salary from worker,jobs where worker.wid='$id'and worker.jid = jobs.jid";
+    $sql = "select wid,staff.name wname,sex,jobs.name jname,salary from staff,jobs where staff.wid='$id'and staff.jid = jobs.jid";
 else
-    $sql = "select wid,worker.name wname,sex,jobs.name jname,salary from worker,jobs where worker.jid = jobs.jid and worker.name like '$id%'";
+    $sql = "select wid,staff.name wname,sex,jobs.name jname,salary from staff,jobs where staff.jid = jobs.jid and staff.name like '$id%'";
 
 $result = mysql_query($sql,$db);
 if (! $result)

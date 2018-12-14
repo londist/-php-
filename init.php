@@ -16,7 +16,7 @@ $student = "create table if not exists student (
     tel varchar(13)) engine=innodb";
 
 // 消费者
-$custom = "create table if not exists custom (
+$consumer = "create table if not exists consumer (
     cid char(10) primary key ,
     cur_money float,
     foreign key (cid) references student(sid) on delete cascade on update cascade ) engine=innodb";
@@ -26,19 +26,19 @@ $supply = "create table if not exists supply (
     sid int primary key auto_increment,
     name char(10) not null,
     sex char(3) not null,
-    tel varchar(13), 
-    address char(100), 
+    tel varchar(13),
+    address char(100),
     description char(200),
     add_time datetime)";
 
 //职位
-$jobs = "create table if not exists jobs ( 
+$jobs = "create table if not exists jobs (
     jid int primary key auto_increment,
     name char(100) not null,
     salary float )";   //薪水
 
 //饭堂员工
-$worker = "create table if not exists worker (
+$staff = "create table if not exists staff (
     wid int primary key auto_increment,
     name char(10) not null,
     sex char(3) ,
@@ -70,17 +70,17 @@ $add_material = "create table if not exists add_material (
     charge int,
     foreign key (mid) references material(mid),
     foreign key (sid) references supply(sid),
-    foreign key (charge) references worker(wid))";
+    foreign key (charge) references staff(wid))";
 
 // 消费记录
-$custom_record = "create table if not exists add_custom_record (
+$consumption_record = "create table if not exists consumption_record (
     id int primary key auto_increment,
     cid char(10),
     money float not null,
     operator int not null,
     add_time datetime,
     add_date date,
-    foreign key (cid) references custom(cid))";
+    foreign key (cid) references consumer(cid))";
 
 // 帐号表
 $manage = "create table if not exists manage (
@@ -96,7 +96,7 @@ function create_table ($sql,$table){
         mydie("创建表 $table 失败<br>");
     else
         echo "成功创建表 $table<br>";
-} 
+}
 
 
 function mydie($info){
@@ -105,14 +105,14 @@ function mydie($info){
 }
 
 create_table($student,"student");
-create_table($custom,"custom");
+create_table($consumer,"consumer");
 create_table($supply,"supply");
 create_table($jobs,"jobs");
-create_table($worker,"worker");
+create_table($staff,"staff");
 create_table($material,"material");
 create_table($food,"food");
 create_table($add_material,"add materail");
-create_table($custom_record,"add custom record");
+create_table($consumption_record,"consumption_record");
 create_table($manage,"manage");
 
 
@@ -124,8 +124,8 @@ function add_jobs () {
         echo "成功创建一条职位记录<br>";
 }
 
-function add_worker (){
-    $sql = "insert into worker (name) values ('系统管理员')";
+function add_staff (){
+    $sql = "insert into staff (name) values ('系统管理员')";
     if (! mysql_query ($sql,$db))
         mydie("创建员工失败<br>");
     else

@@ -12,12 +12,12 @@ if (isset($_POST['id']) and isset($_POST['money']) ){
 
     $id = remove_unsafe_char($id);
     $money = remove_unsafe_char($money);
-    $sql = "insert into custom values ('$id','$money')";
+    $sql = "insert into consumer values ('$id','$money')";
     $result = mysql_query($sql,$db);
     if (! $result)
         die("添加消费者信息失败<br/>" . mysql_error());
     else {
-        $url = referer("m-custom.php");
+        $url = referer("m-consumer.php");
         echo "<script>alert('成功添加一个消费者信息!');location='$url'</script>";
     }
 }

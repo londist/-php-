@@ -17,7 +17,7 @@ include ("../template/template.html");
                 <div class="box-header with-border">
                     <h3 class="box-title">添加一个员工</h3>
                 </div>
-                <form action="add_worker_submit.php" method="post">
+                <form action="add_staff_submit.php" method="post">
                     <div class="box-body">
                         <div class="form-group">
                             <label for="name">姓名</label>

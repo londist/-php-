@@ -14,13 +14,13 @@ $foods = $_POST['food'];
 if (! $foods)
     die ("请选择饭菜!");
 
-$sql = "select * from custom where cid=$id";
+$sql = "select * from consumer where cid=$id";
 $result = mysql_query ($sql,$db);
 if (! $result)
     die ("查询消费者信息出错<br/>" . mysql_error());
 
-$custom = mysql_fetch_array($result);
-if (! $custom)
+$consumer = mysql_fetch_array($result);
+if (! $consumer)
     die ("没有该消费者的信息");
 
 $money = 0;
@@ -36,15 +36,15 @@ foreach ($foods as $food){
         die ("没有该食物!");
     $money += $row2[0];
 }
-if ($money > $custom['cur_money'])
+if ($money > $consumer['cur_money'])
     die ("当前金额不够，请先冲值!");
 else {
-    $sql_sub = "update custom set cur_money = cur_money-$money where cid=$id";
+    $sql_sub = "update consumer set cur_money = cur_money-$money where cid=$id";
     $result3 = mysql_query($sql_sub,$db);
     if (! $result3)
         die ("修改消费者金额失败! " . mysql_error());
-    
-    $result4 = mysql_query("insert into add_custom_record (cid,money,operator,add_time,add_date) values ('$id',$money,1,now(),curdate())");
+
+    $result4 = mysql_query("insert into consumption_record (cid,money,operator,add_time,add_date) values ('$id',$money,1,now(),curdate())");
     if (! $result4)
          die ("添加消费记录失败" . mysql_error());
     mysql_close($db);
@@ -64,7 +64,7 @@ else {
         <div id="main">
             <h3>点菜成功</h3>
             <p>您本次消费</span> <?php echo $money; ?> 元</p>
-            <p>您当前的帐号余额为 <?php echo $custom['cur_money']-$money; ?> 元</p>
+            <p>您当前的帐号余额为 <?php echo $consumer['cur_money']-$money; ?> 元</p>
             <a href='add_eating.php' style="font-size:13px;">返回</a>
         </div>
     </body>

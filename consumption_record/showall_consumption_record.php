@@ -1,10 +1,10 @@
-<?php 
+<?php
 include ("../conn.php");
 include ("../util.php");
 utf8();
 m2_login();
 
-$sql = "select * from add_custom_record ";
+$sql = "select * from consumption_record";
 $result = mysql_query($sql,$db);
 if (! $result)
     die ("查询消费记录失败<br/>" . mysql_error());
@@ -29,14 +29,14 @@ else:
     <div id="nav">
         <ul>
             <li>你好 <?php echo $_SESSION['user']; ?>!</li>
-            <li><a href="showall_custom_record.php">管理</a></li>
+            <li><a href="showall_consumption_record.php">管理</a></li>
             <li><a href="/update_password.php">修改密码</a></li>
             <li><a href="/logout.php">注销</a></li>
         </ul>
     </div>
 <?php endif; ?>
         <div id="main">
-            <form action="show_custom_record.php" method="get">学号<input type="text" name="id" value="" size="10" ><input type="submit" value="提交查询"></form>
+            <form action="show_consumption_record.php" method="get">学号<input type="text" name="id" value="" size="10" ><input type="submit" value="提交查询"></form>
             <h3>消费记录列表</h3>
             <table >
             <tr><th>序号</th><th>编号</th><th>消费类型</th><th>金额</th><th>时间</th></tr>
@@ -44,7 +44,7 @@ else:
     $n = 1;
     while ($row = mysql_fetch_array($result)){
         $temp = $row['operator']==1? "消费" : "充值";
-        printf("<tr><td>%d</td><td><a href='../custom/search_custom.php?id=%s'>%s</a></td><td>%s</td><td>%s</td><td>%s</td></tr>",$n,$row['cid'],$row['cid'],$temp,$row['money'],$row['add_time']);
+        printf("<tr><td>%d</td><td><a href='../consumer/search_consumer.php?id=%s'>%s</a></td><td>%s</td><td>%s</td><td>%s</td></tr>",$n,$row['cid'],$row['cid'],$temp,$row['money'],$row['add_time']);
         $n = $n + 1;
     }
     mysql_close($db);

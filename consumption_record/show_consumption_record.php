@@ -1,4 +1,4 @@
-<?php 
+<?php
 include ("../conn.php");
 include ("../util.php");
 utf8();
@@ -10,11 +10,11 @@ $id = remove_unsafe_char ($_GET['id']);
 if (! is_numeric($id))
     die ("学号一定要是数字");
 
-$sql = "select * from add_custom_record where cid='$id'";
+$sql = "select * from consumption_record where cid='$id'";
 $result = mysql_query($sql,$db);
 if (! $result)
     die ("查询消费记录失败<br/>" . mysql_error());
-if (is_admin()): include ("../template/template.html"); 
+if (is_admin()): include ("../template/template.html");
 else :
 ?>
 
@@ -35,7 +35,7 @@ else :
     <div id="nav">
         <ul>
             <li>你好 <?php echo $_SESSION['user']; ?>!</li>
-            <li><a href="showall_custom_record.php">管理</a></li>
+            <li><a href="showall_consumption_record.php">管理</a></li>
             <li><a href="/update_password.php">修改密码</a></li>
             <li><a href="/logout.php">注销</a></li>
         </ul>
@@ -43,7 +43,7 @@ else :
 <?php endif; ?>
         <div id="main">
         <h3>消费记录列表</h3>
-        <p>消费者: <a href="../custom/search_custom.php?id=<?php echo $id; ?>"><?php $aa = mysql_fetch_row(mysql_query("select name from student where sid='$id'")); echo $aa[0];  ?></a></p>
+        <p>消费者: <a href="../consumer/search_consumer.php?id=<?php echo $id; ?>"><?php $aa = mysql_fetch_row(mysql_query("select name from student where sid='$id'")); echo $aa[0];  ?></a></p>
         <table>
             <tr><th>序号</th><th>消费类型</th><th>金额</th><th>时间</th></tr>
 

@@ -13,7 +13,7 @@ if (! is_numeric($id))
 
 $id = remove_unsafe_char($id);
 $sql_job = "select * from jobs";
-$sql = "select * from worker where wid='$id'";
+$sql = "select * from staff where wid='$id'";
 
 $result = mysql_query($sql_job, $db);
 if (! $result)
@@ -32,7 +32,7 @@ include ("../template/template.html");
         <div class="col-md-12">
             <div class="box box-primary">
                 <div class="box-header with-border">编辑</div>
-                <form action="update_worker_submit.php" method="post">
+                <form action="update_staff_submit.php" method="post">
                     <div class="box-body">
                         <div class="form-group">
                             <label>姓名</label>
