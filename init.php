@@ -83,7 +83,7 @@ $consumption_record = "create table if not exists consumption_record (
     foreign key (cid) references consumer(cid))";
 
 // 帐号表
-$manage = "create table if not exists manage (
+$account = "create table if not exists account (
     id int primary key auto_increment,
     username char(20) not null unique,
     password char(32) not null ,
@@ -113,7 +113,7 @@ create_table($material,"material");
 create_table($food,"food");
 create_table($add_material,"add materail");
 create_table($consumption_record,"consumption_record");
-create_table($manage,"manage");
+create_table($account,"account");
 
 
 function add_jobs () {
@@ -138,7 +138,7 @@ function add_admin (){
     $canteen_admin = "mkw";
     $canteen_admin_pass = "hello";
     $canteen_admin_pass_cry = md5($canteen_admin_pass);
-    $sql = "insert into manage (username,password,proi) values ('$canteen_admin','$canteen_admin_pass_cry',0)";
+    $sql = "insert into account (username,password,proi) values ('$canteen_admin','$canteen_admin_pass_cry',0)";
     if (! mysql_query($sql,$db))
         echo ("创建管理员失败<br>");
     else

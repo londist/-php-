@@ -9,7 +9,7 @@ if (! isset($_POST['username']) or !isset($_POST['password']))
 $username = remove_unsafe_char(trim($_POST['username']));
 $password = md5(remove_unsafe_char(trim($_POST['password'])));
 
-$result = mysql_query("SELECT * FROM manage where username='$username' and password='$password'",$db);
+$result = mysql_query("SELECT * FROM account where username='$username' and password='$password'",$db);
 if(! $result)
     die('查表失败' . mysql_error());
 

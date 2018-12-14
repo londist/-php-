@@ -12,12 +12,10 @@ if (! is_numeric($id))
     die ("帐号的编号一定要是数字!");
 
 $id = remove_unsafe_char($id);
-$sql = "delete from manage where id=$id";
+$sql = "delete from account where id=$id";
 $result = mysql_query($sql,$db);
 if (! $result)
     die ("删除帐号失败! " . mysql_error());
 
-echo "删除帐号成功！" ;
-echo "<a href='m-manage.php'>返回</a>";
+echo "<script>alert('删除帐号成功！');location='./m-account.php'</script>";
 mysql_close($db);
-?>
