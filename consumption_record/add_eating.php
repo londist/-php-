@@ -23,16 +23,16 @@ include ("../template/header.html");
                         </div>
                         <table class="table table-hover">
                             <tr>
+                                <th style="width: 5%">选择</th>
                                 <th>序号</th>
                                 <th>菜名</th>
                                 <th>价格</th>
                                 <th>描述</th>
-                                <th>选择</th>
                             </tr>
 <?php
 $n = 1;
 while ($row = mysql_fetch_array($result)){
-    echo "<tr><td>$n</td><td>".$row['name']."</td><td>".$row['price']."</td><td>".$row['description']."</td><td><input type='checkbox' name='food[]' value='".$row['fid']."'></td></tr>";
+    echo "<tr><td><input type='checkbox' name='food[]' value='".$row['fid']."'></td><td>$n</td><td>".$row['name']."</td><td>".$row['price']."</td><td>".$row['description']."</td></tr>";
     $n = $n + 1;
 }
 mysql_close($db);
