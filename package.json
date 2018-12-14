@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "admin-lte": "^2.4.8"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.3.27"
   }
 }
