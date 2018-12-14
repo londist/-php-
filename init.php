@@ -29,7 +29,7 @@ $supply = "create table if not exists supply (
     tel varchar(13),
     address char(100),
     description char(200),
-    add_time datetime)";
+    last_modified datetime)";
 
 //职位
 $jobs = "create table if not exists jobs (
@@ -66,7 +66,7 @@ $add_material = "create table if not exists add_material (
     sid int,
     price float not null,
     amount float not null,
-    add_time datetime,
+    last_modified datetime,
     charge int,
     foreign key (mid) references material(mid),
     foreign key (sid) references supply(sid),
@@ -78,7 +78,7 @@ $consumption_record = "create table if not exists consumption_record (
     cid char(10),
     money float not null,
     operator int not null,
-    add_time datetime,
+    last_modified datetime,
     add_date date,
     foreign key (cid) references consumer(cid))";
 

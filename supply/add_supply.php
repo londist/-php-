@@ -4,7 +4,7 @@ include ("../util.php");
 handle_login();
 utf8();
 
-if ( !isset($_POST['name']) or !isset($_POST['sex']) or !isset($_POST['tel']))
+if (!isset($_POST['name']) or !isset($_POST['sex']) or !isset($_POST['tel']))
     die("供应商的姓名，性别，电话不能为空!");
 
 $name = $_POST['name'];
@@ -19,16 +19,10 @@ $tel  = remove_unsafe_char($tel);
 $address = remove_unsafe_char($address);
 $desc = remove_unsafe_char($desc);
 
-if ($sex != '男' and $sex!='女')
-    die("性别不是男就是女!");
-
-$sql = "insert into supply (name,sex,tel,address,description,add_time) values ('$name','$sex','$tel','$address','$desc',now())";
+$sql = "insert into supply (name,sex,tel,address,description,last_modified) values ('$name','$sex','$tel','$address','$desc',now())";
 $result = mysql_query($sql,$db);
 if (! $result)
-    die ("插入供应商失败 !" . mysql_error());
+    die("插入供应商失败 !" . mysql_error());
 
-echo "成功添加供应商";
-echo "<a href='m-supply.php'>返回</a>";
+echo "<script>alert('成功添加供应商');location='./m-supply.php'</script>";
 mysql_close($db);
-
-?>
