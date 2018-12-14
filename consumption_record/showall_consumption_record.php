@@ -52,4 +52,4 @@ else:
             </table>
         </div>
 
-<?php include ("../template/tail.html"); ?>
+<?php include ("../template/footer.html"); ?>

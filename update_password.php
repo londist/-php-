@@ -31,6 +31,6 @@ else :
     <p><input type="reset" value="Reset"> <input type="submit" value="Update "></p>
     </form>
 </div>
-<?php 
-include ("template/tail.html");
+<?php
+include ("template/footer.html");
 ?>

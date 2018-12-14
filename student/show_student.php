@@ -34,5 +34,5 @@ echo "<tr><td>".$row['sid'] ."</td><td>". $row['name'] ."</td><td>". $row['sex']
     </div>
 </section>
 <?php
-include ("../template/tail.html");
+include ("../template/footer.html");
 ?>

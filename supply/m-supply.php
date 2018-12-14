@@ -77,4 +77,4 @@ mysql_close($db);
     </div>
 </section>
 <?php
-include ("../template/tail.html");
+include ("../template/footer.html");

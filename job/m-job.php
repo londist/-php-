@@ -60,4 +60,4 @@ mysql_close($db);
         </div>
     </div>
 <?php
-include ("../template/tail.html");
+include ("../template/footer.html");

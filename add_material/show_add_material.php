@@ -40,4 +40,4 @@ mysql_close($db);
         </div>
     </div>
 </section>
-<?php include ("../template/tail.html");
+<?php include ("../template/footer.html");

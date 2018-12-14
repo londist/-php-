@@ -61,4 +61,4 @@ include ("../template/template.html");
     </div>
 </section>
 <?php
-include ("../template/tail.html");
+include ("../template/footer.html");
