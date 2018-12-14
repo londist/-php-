@@ -19,7 +19,7 @@ if (! $result_2)
 if (! $result_3)
     die("查询员工信息失败" . mysql_error());
 
-include ("../template/template.html");
+include ("../template/header.html");
 ?>
 <section class="content-header"><h1>食材进货管理</h1></section>
 <section class="content">

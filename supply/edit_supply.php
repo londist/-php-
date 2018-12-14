@@ -19,7 +19,7 @@ $row = mysql_fetch_array($result);
 if (!$row)
     die("数据库没有该供应商的信息!");
 mysql_close($db);
-include ("../template/template.html");
+include ("../template/header.html");
 ?>
 <section class="content-header"><h1>供应商管理</h1></section>
 <section class="content">

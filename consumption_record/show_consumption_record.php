@@ -14,7 +14,7 @@ $sql = "select * from consumption_record where cid='$id'";
 $result = mysql_query($sql,$db);
 if (! $result)
     die ("查询消费记录失败<br/>" . mysql_error());
-if (is_admin()): include ("../template/template.html");
+if (is_admin()): include ("../template/header.html");
 else :
 ?>
 

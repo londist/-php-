@@ -6,7 +6,7 @@ utf8();
 
 $sql = "select * from jobs order by jid desc ";
 $result = mysql_query($sql,$db);
-include ("../template/template.html");
+include ("../template/header.html");
 ?>
 <section class="content-header"><h1>职位管理</h1></section>
 <section class="content">

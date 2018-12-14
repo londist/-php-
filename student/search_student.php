@@ -19,7 +19,7 @@ $row = mysql_fetch_array($result);
 if (! $row)
     die ("没有该学号的学生信息!");
 mysql_close($db);
-include ("../template/template.html");
+include ("../template/header.html");
 ?>
 <section class="content-header"><h1>学生信息</h1></section>
 <section class="content">

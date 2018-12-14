@@ -24,7 +24,7 @@ if (! $result2)
     die ("查询员工失败" . mysql_error());
 $row2 = mysql_fetch_array($result2);
 
-include ("../template/template.html");
+include ("../template/header.html");
 ?>
 <section class="content-header"><h1>编辑员工信息</h1></section>
 <section class="content">

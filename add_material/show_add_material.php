@@ -10,7 +10,7 @@ $sql2 = "select * from add_material,material where material.mid=add_material.mid
 $result = mysql_query($sql2,$db);
 if (!$result)
     die ("查询进货记录失败!<br/>" . mysql_error());
-include ("../template/template.html");
+include ("../template/header.html");
 ?>
 <section class="content-header"><h1>食材进货记录</h1></section>
 <section class="content">

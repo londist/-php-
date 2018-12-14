@@ -7,7 +7,7 @@ $sql = "select * from food";
 $result = mysql_query($sql,$db);
 if (! isset($result))
     die("查询食物失败<br/>".mysql_error());
-include ("../template/template.html");
+include ("../template/header.html");
 ?>
 <section class="content-header"><h1>消费记录</h1></section>
 <section class="content">

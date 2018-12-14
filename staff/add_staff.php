@@ -7,7 +7,7 @@ $sql = "select * from jobs";
 $result = mysql_query($sql, $db);
 if (! $result)
     die("连接数据库失败" . mysql_error());
-include ("../template/template.html");
+include ("../template/header.html");
 ?>
 <section class="content-header"><h1>添加员工信息</h1></section>
 <section class="content">

@@ -6,7 +6,7 @@ header("Content-type: text/html; charset=utf-8");
 
 $sql = "select * from student,consumer where consumer.cid=student.sid";
 $result = mysql_query($sql,$db);
-include ("../template/template.html");
+include ("../template/header.html");
 ?>
 <section class="content-header"><h1>所有消费者信息</h1></section>
 <section class="content">

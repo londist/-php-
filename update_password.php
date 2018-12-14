@@ -2,7 +2,7 @@
 include ("util.php");
 is_user();
 utf8();
-if (is_admin()): include ("template/template.html");
+if (is_admin()): include ("template/header.html");
 else :
 ?>
 <html>

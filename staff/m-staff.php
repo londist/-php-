@@ -10,7 +10,7 @@ if (! $result)
     die("查询工人数据库失败! " . mysql_error());
 
 $acount = mysql_num_rows($result);
-include ("../template/template.html");
+include ("../template/header.html");
 ?>
 <section class="content-header"><h1>员工管理</h1></section>
 <section class="content">

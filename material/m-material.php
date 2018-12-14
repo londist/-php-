@@ -9,7 +9,7 @@ $result = mysql_query($sql,$db);
 if (! $result)
     die ("查询食材失败 !" . mysql_error());
 $n = 1;
-include ("../template/template.html");
+include ("../template/header.html");
 ?>
 <section class="content-header"><h1>食材管理</h1></section>
 <section class="content">

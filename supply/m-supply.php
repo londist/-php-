@@ -3,7 +3,7 @@ include ("../util.php");
 include ("../conn.php");
 handle_login();
 utf8();
-include ("../template/template.html");
+include ("../template/header.html");
 ?>
 <section class="content-header"><h1>供应商管理</h1></section>
 <section class="content">

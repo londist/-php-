@@ -7,7 +7,7 @@ utf8();
 $sql = "select * from student";
 $result = mysql_query($sql,$db);
 mysql_close($db);
-include ("../template/template.html");
+include ("../template/header.html");
 ?>
 <section class="content-header"><h1>学生信息列表</h1></section>
 <section class="content">

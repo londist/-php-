@@ -8,7 +8,7 @@ $sql = "select * from account where proi!=0";
 $result = mysql_query($sql,$db);
 if (! $result)
     die ("查询帐号失败 !" . mysql_error());
-include ("../template/template.html");
+include ("../template/header.html");
 ?>
 <section class="content-header"><h1>账号管理</h1></section>
 <section class="content">

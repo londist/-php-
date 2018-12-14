@@ -14,7 +14,7 @@ if (! $row)
     die("不存在学号为 $sid  的学生!<br/>");
 
 mysql_close($db);
-include ("../template/template.html");
+include ("../template/header.html");
 ?>
 <section class="content-header"><h1>编辑消费者信息</h1></section>
 <section class="content">

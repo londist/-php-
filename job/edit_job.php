@@ -24,7 +24,7 @@ if (! $row)
 
 mysql_close($db);
 
-include ("../template/template.html");
+include ("../template/header.html");
 ?>
 <section class="content-header"><h1>编辑职位</h1></section>
 <section class="content">

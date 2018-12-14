@@ -19,7 +19,7 @@ $row = mysql_fetch_array($result);
 if (! $row)
 die ("没有该食物的信息!");
 mysql_close($db);
-include ("../template/template.html");
+include ("../template/header.html");
 ?>
 <section class="content-header"><h1>食物管理</h1></section>
 <section class="content">
