@@ -1,25 +1,28 @@
-﻿<?php
-include ("../conn.php");
-include ("../util.php");
+<?php
+include("../conn.php");
+include("../util.php");
 handle_login();
 header("Content-Type:text/html; charset=utf-8");
 
-if(! isset($_GET['id']))
-    die ("请添加编号<br>");
+if (! isset($_GET['id'])) {
+    die("请添加编号<br>");
+}
 
 $id = $_GET['id'];
 $id = remove_unsafe_char($id);
 
 $sql = "select * from student,consumer where sid='$id' and sid=cid";
-$result = mysql_query($sql,$db);
-if (!$result)
+$result = mysql_query($sql, $db);
+if (!$result) {
     die("查找消费者信息失败!<br>" . mysql_error());
+}
 
 $row = mysql_fetch_array($result);
-if (! $row)
+if (! $row) {
     die("没有该消费者的信息!");
+}
 mysql_close($db);
-include ("../template/header.html");
+include("../template/header.html");
 ?>
 <section class="content-header"><h1>消费者信息</h1></section>
 <section class="content">
@@ -46,5 +49,5 @@ echo "<tr><td>".$row['sid'] ."</td><td>". $row['name'] ."</td><td>". $row['sex']
     </div>
 </section>
 <?php
-include ("../template/footer.html");
+include("../template/footer.html");
 ?>

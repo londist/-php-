@@ -1,11 +1,12 @@
 <?php
-include ("../conn.php");
-include ("../util.php");
+include("../conn.php");
+include("../util.php");
 handle_login();
 utf8();
 
-if (! isset($_POST['name']) or ! isset($_POST['price']) )
+if (! isset($_POST['name']) or ! isset($_POST['price'])) {
     die("添加食物，名称，价格不能为空!");
+}
 
 $name = $_POST['name'];
 $price = $_POST['price'];
@@ -16,9 +17,10 @@ $price = remove_unsafe_char($price);
 $desc = remove_unsafe_char($desc);
 
 $sql = "insert into food (name,description,price) values ('$name','$desc',$price) ";
-$result = mysql_query($sql,$db);
-if (! $result)
+$result = mysql_query($sql, $db);
+if (! $result) {
     die("添加食物失败! " . mysql_error());
+}
 
 echo "<script>alert('成功添加食物');location='./m-food.php'</script>";
 mysql_close($db);

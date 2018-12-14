@@ -1,8 +1,8 @@
 <?php
-include ("../util.php");
+include("../util.php");
 is_user();
 utf8();
-include ("../template/header.html");
+include("../template/header.html");
 ?>
 <section class="content-header"><h1>修改密码</h1></section>
 <section class="content">
@@ -34,4 +34,4 @@ include ("../template/header.html");
     </div>
 </section>
 <?php
-include ("template/footer.html");
+include("template/footer.html");

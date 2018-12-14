@@ -1,20 +1,23 @@
 <?php
-include ("../conn.php");
-include ("../util.php");
+include("../conn.php");
+include("../util.php");
 utf8();
 m2_login();
 
-if (! isset($_GET['id']))
-    die ("请输入学号");
+if (! isset($_GET['id'])) {
+    die("请输入学号");
+}
 $id = remove_unsafe_char($_GET['id']);
-if (! is_numeric($id))
-    die ("学号一定要是数字");
+if (! is_numeric($id)) {
+    die("学号一定要是数字");
+}
 
 $sql = "select * from consumption_record where cid='$id'";
 $result = mysql_query($sql, $db);
-if (! $result)
+if (! $result) {
     die("查询消费记录失败<br/>" . mysql_error());
-include ("../template/header.html");
+}
+include("../template/header.html");
 ?>
 <section class="content-header"><h1>消费记录</h1></section>
 <section class="content">
@@ -53,4 +56,4 @@ mysql_close($db);
     </div>
 </section>
 <?php
-include ("../template/footer.html");
+include("../template/footer.html");

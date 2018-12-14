@@ -1,13 +1,14 @@
 <?php
-include ("../conn.php");
-include ("../util.php");
+include("../conn.php");
+include("../util.php");
 handle_login();
 utf8();
 $sql = "select * from jobs";
 $result = mysql_query($sql, $db);
-if (! $result)
+if (! $result) {
     die("连接数据库失败" . mysql_error());
-include ("../template/header.html");
+}
+include("../template/header.html");
 ?>
 <section class="content-header"><h1>添加员工信息</h1></section>
 <section class="content">
@@ -32,8 +33,9 @@ include ("../template/header.html");
                             <label for="job">职位</label>
                             <select name="job" class="form-control">
 <?php
-while ($row = mysql_fetch_array($result))
+while ($row = mysql_fetch_array($result)) {
     echo "<option value=" . $row['jid'] . ">" . $row['name'] . "</option>";
+}
 mysql_close($db);
 ?>
                             </select>
@@ -48,5 +50,5 @@ mysql_close($db);
     </div>
 </section>
 <?php
-include ("../template/footer.html");
+include("../template/footer.html");
 ?>

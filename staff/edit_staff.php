@@ -1,30 +1,34 @@
 <?php
-include ("../conn.php");
-include ("../util.php");
+include("../conn.php");
+include("../util.php");
 handle_login();
 utf8();
 
-if (! isset($_GET['id']))
-    die ("员工编号不能为空");
+if (! isset($_GET['id'])) {
+    die("员工编号不能为空");
+}
 
 $id = $_GET['id'];
-if (! is_numeric($id))
-    die ("员工编号一定要是数字!");
+if (! is_numeric($id)) {
+    die("员工编号一定要是数字!");
+}
 
 $id = remove_unsafe_char($id);
 $sql_job = "select * from jobs";
 $sql = "select * from staff where wid='$id'";
 
 $result = mysql_query($sql_job, $db);
-if (! $result)
-    die ("查询职位失败" . mysql_error());
+if (! $result) {
+    die("查询职位失败" . mysql_error());
+}
 
 $result2 = mysql_query($sql, $db);
-if (! $result2)
-    die ("查询员工失败" . mysql_error());
+if (! $result2) {
+    die("查询员工失败" . mysql_error());
+}
 $row2 = mysql_fetch_array($result2);
 
-include ("../template/header.html");
+include("../template/header.html");
 ?>
 <section class="content-header"><h1>编辑员工信息</h1></section>
 <section class="content">
@@ -47,8 +51,9 @@ include ("../template/header.html");
                             <label for="job">职位</label>
                             <select name="job" class="form-control">
 <?php
-while ($row = mysql_fetch_array($result))
+while ($row = mysql_fetch_array($result)) {
     echo "<option value=" . $row['jid'] . ">" . $row['name'] . "</option>";
+}
 mysql_close($db);
 ?>
                             </select>
@@ -64,4 +69,4 @@ mysql_close($db);
     </div>
 </section>
 <?php
-include ("../template/footer.html");
+include("../template/footer.html");

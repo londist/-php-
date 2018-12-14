@@ -1,14 +1,15 @@
 <?php
-include ("../conn.php");
-include ("../util.php");
+include("../conn.php");
+include("../util.php");
 handle_login();
 utf8();
 
 $sql = "select * from account where proi!=0";
-$result = mysql_query($sql,$db);
-if (! $result)
-    die ("查询帐号失败 !" . mysql_error());
-include ("../template/header.html");
+$result = mysql_query($sql, $db);
+if (! $result) {
+    die("查询帐号失败 !" . mysql_error());
+}
+include("../template/header.html");
 ?>
 <section class="content-header"><h1>账号管理</h1></section>
 <section class="content">
@@ -55,12 +56,13 @@ include ("../template/header.html");
                         </tr>
 <?php
 while ($row = mysql_fetch_array($result)) {
-    if ($row['proi'] == 1)
+    if ($row['proi'] == 1) {
         $s_proi = "进货记录员";
-    else if ($row['proi'])
+    } elseif ($row['proi']) {
         $s_proi = "消费查询员";
-    else
+    } else {
         die("权限分配出错!");
+    }
     echo "<tr><td>".$row['id']."</td><td>".$row['username']."</td><td>".$s_proi."</td><td><a href='del_account.php?id=".$row['id']."' onclick=\"return confirm('确定删除?'); \" >删除</a>  <a href='edit_account.php?id=".$row['id']."'>编辑</a></td></tr>";
 }
 
@@ -73,4 +75,4 @@ mysql_close($db);
     </div>
 </section>
 <?php
-include ("../template/footer.html");
+include("../template/footer.html");

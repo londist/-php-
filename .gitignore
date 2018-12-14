@@ -5,3 +5,5 @@ up-rewrite.conf
 node_modules/
 yarn.lock
 package.json
+php-cs-fixer.phar
+.php_cs.cache

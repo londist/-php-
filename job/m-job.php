@@ -1,12 +1,12 @@
 <?php
-include ("../conn.php");
-include ("../util.php");
+include("../conn.php");
+include("../util.php");
 handle_login();
 utf8();
 
 $sql = "select * from jobs order by jid desc ";
-$result = mysql_query($sql,$db);
-include ("../template/header.html");
+$result = mysql_query($sql, $db);
+include("../template/header.html");
 ?>
 <section class="content-header"><h1>职位管理</h1></section>
 <section class="content">
@@ -46,11 +46,12 @@ include ("../template/header.html");
                             <th>操作</th>
                         </tr>
 <?php
-while ($row = mysql_fetch_array($result))
+while ($row = mysql_fetch_array($result)) {
     echo "<tr><td>" . $row['name'] . "</td><td>" . $row['salary'] .
     "</td><td><a href='del_job.php?id=" . $row['jid'] .
     "' onclick=\"return confirm('确认删除?'); \">删除该职位</a>" .
     "&nbsp;&nbsp;<a href='edit_job.php?id=" . $row['jid'] . "'>编辑</a></td></tr>";
+}
 
 mysql_close($db);
 ?>
@@ -60,4 +61,4 @@ mysql_close($db);
         </div>
     </div>
 <?php
-include ("../template/footer.html");
+include("../template/footer.html");

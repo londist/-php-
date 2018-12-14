@@ -1,14 +1,15 @@
 <?php
-include ("../conn.php");
-include ("../util.php");
+include("../conn.php");
+include("../util.php");
 utf8();
 m2_login();
 
 $sql = "select * from consumption_record";
-$result = mysql_query($sql,$db);
-if (! $result)
+$result = mysql_query($sql, $db);
+if (! $result) {
     die("查询消费记录失败<br/>" . mysql_error());
-include ("../template/header.html");
+}
+include("../template/header.html");
 ?>
 <section class="content-header"><h1>消费记录</h1></section>
 <section class="content">
@@ -58,4 +59,4 @@ mysql_close($db);
     </div>
 </section>
 <?php
-include ("../template/footer.html");
+include("../template/footer.html");

@@ -1,25 +1,29 @@
 <?php
-include ("../conn.php");
-include ("../util.php");
+include("../conn.php");
+include("../util.php");
 handle_login();
 utf8();
-if (! isset($_GET['id']))
+if (! isset($_GET['id'])) {
     die("编辑帐号，请输入帐号的编号!");
+}
 
 $id = $_GET['id'];
-if (! is_numeric($id))
+if (! is_numeric($id)) {
     die("帐号的编号一定要是数字!");
+}
 
 $id = remove_unsafe_char($id);
 $sql = "select * from account where id='$id' and proi!=0";
-$result = mysql_query($sql,$db);
-if (! $result)
+$result = mysql_query($sql, $db);
+if (! $result) {
     die("查询帐号信息失败! <br/>" . mysql_error());
+}
 $row = mysql_fetch_array($result);
-if (! $row)
+if (! $row) {
     die("没有该帐号的信息!");
+}
 mysql_close($db);
-include ("../template/header.html");
+include("../template/header.html");
 ?>
 <section class="content-header"><h1>账号管理</h1></section>
 <section class="content">
@@ -55,4 +59,4 @@ include ("../template/header.html");
     </div>
 </section>
 <?php
-include ("../template/footer.html");
+include("../template/footer.html");

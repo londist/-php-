@@ -1,15 +1,16 @@
 <?php
-include ("../conn.php");
-include ("../util.php");
+include("../conn.php");
+include("../util.php");
 handle_login();
 utf8();
 
 $sql = "select * from food";
-$result = mysql_query($sql,$db);
-if (! $result)
-    die ("查询食物失败 !" . mysql_error());
+$result = mysql_query($sql, $db);
+if (! $result) {
+    die("查询食物失败 !" . mysql_error());
+}
 
-include ("../template/header.html");
+include("../template/header.html");
 ?>
 <section class="content-header"><h1>食物管理</h1></section>
 <section class="content">
@@ -56,8 +57,9 @@ include ("../template/header.html");
                             <th>操作</th>
                         </tr>
 <?php
-while ($row = mysql_fetch_array($result))
+while ($row = mysql_fetch_array($result)) {
     echo "<tr><td>".$row['fid']."</td><td>".$row['name']."</td><td>".$row['price']."</td><td>".$row['description']."</td><td><a href='del_food.php?id=".$row['fid']."' onclick=\"return confirm('确定删除?'); \" >删除</a>  <a href='edit_food.php?id=".$row['fid']."'>编辑</a></td></tr>";
+}
 
 mysql_close($db);
 ?>
@@ -68,4 +70,4 @@ mysql_close($db);
     </div>
 </section>
 <?php
-include ("../template/footer.html");
+include("../template/footer.html");

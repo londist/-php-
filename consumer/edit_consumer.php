@@ -1,20 +1,22 @@
 <?php
-include ("../conn.php");
-include ("../util.php");
+include("../conn.php");
+include("../util.php");
 
 handle_login();
 utf8();
 
-if (! isset($_GET['sid']))
+if (! isset($_GET['sid'])) {
     die("请输入学号!");
+}
 
 $sid = remove_unsafe_char($_GET['sid']);
 $row = mysql_fetch_array(mysql_query("select * from consumer,student where cid='$sid' and sid='$sid'"));
-if (! $row)
+if (! $row) {
     die("不存在学号为 $sid  的学生!<br/>");
+}
 
 mysql_close($db);
-include ("../template/header.html");
+include("../template/header.html");
 ?>
 <section class="content-header"><h1>编辑消费者信息</h1></section>
 <section class="content">
@@ -55,4 +57,4 @@ include ("../template/header.html");
     </div>
 </section>
 <?php
-include ("../template/footer.html");
+include("../template/footer.html");

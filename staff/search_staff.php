@@ -1,22 +1,25 @@
 <?php
-include ("../conn.php");
-include ("../util.php");
+include("../conn.php");
+include("../util.php");
 handle_login();
 utf8();
 
-if (! isset($_GET['id']))
-    die ("查询工人信息，姓名或编号不能为空");
+if (! isset($_GET['id'])) {
+    die("查询工人信息，姓名或编号不能为空");
+}
 $id = remove_unsafe_char($_GET['id']);
-if (is_numeric($id))
+if (is_numeric($id)) {
     $sql = "select wid,staff.name wname,sex,jobs.name jname,salary from staff,jobs where staff.wid='$id'and staff.jid = jobs.jid";
-else
+} else {
     $sql = "select wid,staff.name wname,sex,jobs.name jname,salary from staff,jobs where staff.jid = jobs.jid and staff.name like '$id%'";
+}
 
-$result = mysql_query($sql,$db);
-if (! $result)
-    die ("查询工人信息失败" . mysql_error());
+$result = mysql_query($sql, $db);
+if (! $result) {
+    die("查询工人信息失败" . mysql_error());
+}
 
-include ("../template/header.html");
+include("../template/header.html");
 ?>
 <section class="content-header"><h1>员工管理</h1></section>
 <section class="content">
@@ -50,5 +53,5 @@ mysql_close($db);
     </div>
 </section>
 <?php
-include ("../template/footer.html");
+include("../template/footer.html");
 ?>

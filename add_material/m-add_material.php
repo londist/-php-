@@ -1,6 +1,6 @@
 <?php
-include ("../conn.php");
-include ("../util.php");
+include("../conn.php");
+include("../util.php");
 m1_login();
 
 utf8();
@@ -8,18 +8,21 @@ $sql_mate = "select * from material";
 $sql_supp = "select * from supply";
 $sql_work = "select * from staff";
 
-$result_1 = mysql_query($sql_mate,$db);
-$result_2 = mysql_query($sql_supp,$db);
-$result_3 = mysql_query($sql_work,$db);
+$result_1 = mysql_query($sql_mate, $db);
+$result_2 = mysql_query($sql_supp, $db);
+$result_3 = mysql_query($sql_work, $db);
 
-if (! $result_1)
+if (! $result_1) {
     die("查询食材记录失败" . mysql_error());
-if (! $result_2)
+}
+if (! $result_2) {
     die("查询供应商失败" . mysql_error());
-if (! $result_3)
+}
+if (! $result_3) {
     die("查询员工信息失败" . mysql_error());
+}
 
-include ("../template/header.html");
+include("../template/header.html");
 ?>
 <section class="content-header"><h1>食材进货管理</h1></section>
 <section class="content">
@@ -33,8 +36,9 @@ include ("../template/header.html");
                             <label for="material">食材</label>
                             <select name="material" class="form-control">
                                 <?php
-                                    while ($row_1 = mysql_fetch_array($result_1))
+                                    while ($row_1 = mysql_fetch_array($result_1)) {
                                         echo "<option value='".$row_1['mid']."'>".$row_1['name']."</option>";
+                                    }
                                 ?>
                             </select>
                         </div>
@@ -42,8 +46,9 @@ include ("../template/header.html");
                             <label for="supply">供应商</label>
                             <select name="supply" class="form-control">
                                 <?php
-                                    while ($row_2 = mysql_fetch_array($result_2))
+                                    while ($row_2 = mysql_fetch_array($result_2)) {
                                         echo "<option value='".$row_2['sid']."'>".$row_2['name']."</option>";
+                                    }
                                 ?>
                             </select>
                         </div>
@@ -51,8 +56,9 @@ include ("../template/header.html");
                             <label for="charge">饭堂负责人</label>
                             <select name="charge" class="form-control">
                                 <?php
-                                    while ($row_3 = mysql_fetch_array($result_3))
+                                    while ($row_3 = mysql_fetch_array($result_3)) {
                                         echo "<option value='".$row_3['wid']."'>".$row_3['name']."</option>";
+                                    }
                                 ?>
                             </select>
                         </div>
@@ -81,4 +87,4 @@ include ("../template/header.html");
     </div>
 </section>
 <?php
-include ("../template/footer.html");
+include("../template/footer.html");

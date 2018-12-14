@@ -1,16 +1,17 @@
 <?php
-include ("../conn.php");
-include ("../util.php");
+include("../conn.php");
+include("../util.php");
 m1_login();
 utf8();
 
 $sql = "select add_material.price amprice,account,, from add_material,material,supply,staff where add_material.mid=material.mid and add_material.sid=supply.sid and add_material.charge=staff.wid ";
 
 $sql2 = "select * from add_material,material where material.mid=add_material.mid";
-$result = mysql_query($sql2,$db);
-if (!$result)
-    die ("查询进货记录失败!<br/>" . mysql_error());
-include ("../template/header.html");
+$result = mysql_query($sql2, $db);
+if (!$result) {
+    die("查询进货记录失败!<br/>" . mysql_error());
+}
+include("../template/header.html");
 ?>
 <section class="content-header"><h1>食材进货记录</h1></section>
 <section class="content">
@@ -40,4 +41,4 @@ mysql_close($db);
         </div>
     </div>
 </section>
-<?php include ("../template/footer.html");
+<?php include("../template/footer.html");

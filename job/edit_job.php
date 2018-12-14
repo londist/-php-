@@ -1,30 +1,34 @@
 <?php
-include ("../conn.php");
-include ("../util.php");
+include("../conn.php");
+include("../util.php");
 handle_login();
 utf8();
 
-if (! isset($_GET['id']))
+if (! isset($_GET['id'])) {
     die("职位编号不能为空");
+}
 
 $id = $_GET['id'];
-if (! is_numeric($id))
+if (! is_numeric($id)) {
     die("职位编号一定要是数字!");
+}
 
 $id = remove_unsafe_char($id);
 $sql = "select * from jobs where jid='$id'";
 
-$result = mysql_query($sql,$db);
-if (! $result)
+$result = mysql_query($sql, $db);
+if (! $result) {
     die("查询职位失败" . mysql_error());
+}
 
 $row = mysql_fetch_array($result);
-if (! $row)
+if (! $row) {
     die("没有该职位!");
+}
 
 mysql_close($db);
 
-include ("../template/header.html");
+include("../template/header.html");
 ?>
 <section class="content-header"><h1>编辑职位</h1></section>
 <section class="content">
@@ -53,4 +57,4 @@ include ("../template/header.html");
     </div>
 </section>
 <?php
-include ("../template/footer.html");
+include("../template/footer.html");

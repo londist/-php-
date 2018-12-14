@@ -1,13 +1,14 @@
 <?php
-include ("../conn.php");
-include ("../util.php");
+include("../conn.php");
+include("../util.php");
 utf8();
 
 $sql = "select * from food";
-$result = mysql_query($sql,$db);
-if (! isset($result))
+$result = mysql_query($sql, $db);
+if (! isset($result)) {
     die("查询食物失败<br/>".mysql_error());
-include ("../template/header.html");
+}
+include("../template/header.html");
 ?>
 <section class="content-header"><h1>消费记录</h1></section>
 <section class="content">
@@ -31,7 +32,7 @@ include ("../template/header.html");
                             </tr>
 <?php
 $n = 1;
-while ($row = mysql_fetch_array($result)){
+while ($row = mysql_fetch_array($result)) {
     echo "<tr><td><input type='checkbox' name='food[]' value='".$row['fid']."'></td><td>$n</td><td>".$row['name']."</td><td>".$row['price']."</td><td>".$row['description']."</td></tr>";
     $n = $n + 1;
 }
@@ -48,4 +49,4 @@ mysql_close($db);
     </div>
 </section>
 <?php
-include ("../template/footer.html");
+include("../template/footer.html");

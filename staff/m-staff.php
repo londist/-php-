@@ -1,16 +1,17 @@
 <?php
-include ("../conn.php");
-include ("../util.php");
+include("../conn.php");
+include("../util.php");
 handle_login();
 utf8();
 
 $sql = "select wid,name from staff";
-$result = mysql_query ($sql,$db);
-if (! $result)
+$result = mysql_query($sql, $db);
+if (! $result) {
     die("查询工人数据库失败! " . mysql_error());
+}
 
 $acount = mysql_num_rows($result);
-include ("../template/header.html");
+include("../template/header.html");
 ?>
 <section class="content-header"><h1>员工管理</h1></section>
 <section class="content">
@@ -73,5 +74,5 @@ mysql_close($db);
     </div>
 </section>
 <?php
-include ("../template/footer.html");
+include("../template/footer.html");
 ?>
