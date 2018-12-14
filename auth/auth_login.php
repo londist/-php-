@@ -1,10 +1,10 @@
 ﻿<?php
 
-include ("conn.php");
-include ("util.php");
+include ("../conn.php");
+include ("../util.php");
 
 if (! isset($_POST['username']) or !isset($_POST['password']))
-    Header("Location: login.html");
+    Header("Location: /auth/login.html");
 
 $username = remove_unsafe_char(trim($_POST['username']));
 $password = md5(remove_unsafe_char(trim($_POST['password'])));
@@ -23,7 +23,7 @@ if (! $arr){
         case 0:
             $_SESSION['user'] = $username;
             $_SESSION['admin'] = 1;
-            Header("Location: admin_manage.php");
+            Header("Location: /auth/admin.php");
             break;
         case 1:
             $_SESSION['user'] = $username;
@@ -39,5 +39,3 @@ if (! $arr){
     }
 }
 mysql_close($db);
-
-?>

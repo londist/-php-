@@ -3,3 +3,5 @@ phpmyadmin/
 .uini
 up-rewrite.conf
 node_modules/
+yarn.lock
+package.json
