@@ -1,6 +1,6 @@
 <?php
 include("../util.php");
-include("../conn.php");
+include("../db_conn.php");
 utf8();
 if (! isset($_POST['id']) or $_POST['id'] == "") {
     die("请输入学号!");

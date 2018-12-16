@@ -144,13 +144,13 @@ function add_admin()
 {
     global $db;
     $canteen_admin = "mkw";
-    $canteen_admin_pass = "hello";
-    $canteen_admin_pass_cry = md5($canteen_admin_pass);
-    $sql = "insert into account (username,password,proi) values ('$canteen_admin','$canteen_admin_pass_cry',0)";
+    $canteen_admin_pwd = "hello";
+    $canteen_admin_pwd_cry = md5($canteen_admin_pass);
+    $sql = "insert into account (username,password,proi) values ('$canteen_admin','$canteen_admin_pwd_cry',0)";
     if (! mysql_query($sql, $db)) {
         echo("创建管理员失败<br>");
     } else {
-        echo "<b>成功创建管理员帐号! 用户名: $canteen_admin, 密码: $canteen_admin_pass</b><br>";
+        echo "<b>成功创建管理员帐号! 用户名: $canteen_admin, 密码: $canteen_admin_pwd</b><br>";
     }
 }
 

@@ -1,5 +1,5 @@
 <?php
-include("../conn.php");
+include("../db_conn.php");
 include("../util.php");
 handle_login();
 header("Content-type: text/html; charset=utf-8");
