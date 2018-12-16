@@ -22,7 +22,7 @@ $consumer = "create table if not exists consumer (
     foreign key (cid) references student(sid) on delete cascade on update cascade ) engine=innodb";
 
 //供应商
-$supply = "create table if not exists supply (
+$supplier = "create table if not exists supplier (
     sid int primary key auto_increment,
     name char(10) not null,
     sex char(3) not null,
@@ -32,7 +32,7 @@ $supply = "create table if not exists supply (
     last_modified datetime)";
 
 //职位
-$jobs = "create table if not exists jobs (
+$position = "create table if not exists position (
     jid int primary key auto_increment,
     name char(100) not null,
     salary float )";   //薪水
@@ -44,10 +44,10 @@ $staff = "create table if not exists staff (
     sex char(3) ,
     jid int,
     birth date,
-    foreign key (jid) references jobs(jid))";
+    foreign key (jid) references position(jid))";
 
 // 食材
-$material = "create table if not exists material (
+$ingredient = "create table if not exists ingredient (
     mid int primary key auto_increment,
     name char(20),
     description char(200))";
@@ -60,7 +60,7 @@ $food = "create table if not exists food (
     price float not null)";
 
 // 食材进货表
-$add_material = "create table if not exists add_material (
+$add_ingredient = "create table if not exists add_ingredient (
     aid int primary key auto_increment,
     mid int,
     sid int,
@@ -68,8 +68,8 @@ $add_material = "create table if not exists add_material (
     amount float not null,
     last_modified datetime,
     charge int,
-    foreign key (mid) references material(mid),
-    foreign key (sid) references supply(sid),
+    foreign key (mid) references ingredient(mid),
+    foreign key (sid) references supplier(sid),
     foreign key (charge) references staff(wid))";
 
 // 消费记录
@@ -109,19 +109,19 @@ function mydie($info)
 
 create_table($student, "student");
 create_table($consumer, "consumer");
-create_table($supply, "supply");
-create_table($jobs, "jobs");
+create_table($supplier, "supplier");
+create_table($position, "position");
 create_table($staff, "staff");
-create_table($material, "material");
+create_table($ingredient, "ingredient");
 create_table($food, "food");
-create_table($add_material, "add materail");
+create_table($add_ingredient, "add ingredient");
 create_table($consumption_record, "consumption_record");
 create_table($account, "account");
 
 
-function add_jobs()
+function add_position()
 {
-    $sql = "insert into jobs (name) values ('系统管理员')";
+    $sql = "insert into position (name) values ('系统管理员')";
     if (! mysql_query($sql, $db)) {
         mydie("创建职位失败<br>");
     } else {
