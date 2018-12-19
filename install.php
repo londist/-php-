@@ -143,8 +143,8 @@ function add_staff()
 function add_admin()
 {
     global $db;
-    $canteen_admin = "mkw";
-    $canteen_admin_pwd = "hello";
+    $canteen_admin = "admin";
+    $canteen_admin_pwd = "admin";
     $canteen_admin_pwd_cry = md5($canteen_admin_pass);
     $sql = "insert into account (username,password,proi) values ('$canteen_admin','$canteen_admin_pwd_cry',0)";
     if (! mysql_query($sql, $db)) {
