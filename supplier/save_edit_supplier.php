@@ -4,7 +4,7 @@ include("../util.php");
 handle_login();
 utf8();
 
-if (!isset($_POST['id']) or !isset($_POST['name']) or !isset($_POST['sex']) or !isset($_POST['tel'])) {
+if (empty($_POST['id']) or empty($_POST['name']) or empty($_POST['sex']) or empty($_POST['tel'])) {
     die("供应商的姓名，性别，电话不能为空!");
 }
 

@@ -4,8 +4,8 @@ include("../util.php");
 handle_login();
 utf8();
 
-if (!isset($_POST['name']) or !isset($_POST['id'])) {
-    die("添加食材，编号，名称，价格不能为空!");
+if (empty($_POST['name']) or empty($_POST['id'])) {
+    die("编辑食材，名称不能为空!");
 }
 
 $id = $_POST['id'];

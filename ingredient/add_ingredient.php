@@ -4,7 +4,7 @@ include("../util.php");
 handle_login();
 utf8();
 
-if (! isset($_POST['name'])) {
+if (empty($_POST['name'])) {
     die("添加食材，名称不能为空");
 }
 

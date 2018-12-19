@@ -4,8 +4,8 @@ include("../util.php");
 m1_login();
 utf8();
 
-if (!isset($_POST['ingredient']) or !isset($_POST['supplier']) or !isset($_POST['charge']) or !isset($_POST['price']) or !isset($_POST['account'])) {
-    die("添加食材记录中，食材编号，供应商编号，饭堂负责人编号，价格，数量不能为空");
+if (empty($_POST['ingredient']) or empty($_POST['supplier']) or empty($_POST['charge']) or empty($_POST['price']) or empty($_POST['account'])) {
+    die("添加食材记录中，食材编号，供应商编号，饭堂负责人编号，单价，数量均不能为空");
 }
 
 $ingre = remove_unsafe_char($_POST['ingredient']);

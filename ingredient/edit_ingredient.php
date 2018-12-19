@@ -30,7 +30,7 @@ include("../template/header.html");
     <div class="row">
         <div class="col-md-12">
             <div class="box">
-                <div class="box-header">添加食材</div>
+                <div class="box-header">编辑食材</div>
                 <form action="save_edit_ingredient.php" method="post">
                     <div class="box-body">
                         <div class="form-group">

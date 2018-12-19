@@ -1,3 +1,5 @@
+<meta charset="utf-8">
+
 <?php
 
 include("../db_conn.php");

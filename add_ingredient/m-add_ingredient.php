@@ -31,7 +31,7 @@ include("../template/header.html");
 
             <div class="box">
                 <div class="box-header">添加进货记录</div>
-                <form action="add__record.php" method="post">
+                <form action="add_ingredient_record.php" method="post">
                     <div class="box-body">
                         <div class="form-group">
                             <label for="ingredient">食材</label>
