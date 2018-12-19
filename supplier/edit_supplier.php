@@ -1,29 +1,29 @@
 <?php
-include("../db_conn.php");
-include("../util.php");
+include '../db_conn.php';
+include '../util.php';
 handle_login();
 utf8();
 
 if (! isset($_GET['id'])) {
-    die("编辑供应商信息，供应商编号不能空!");
+    die('编辑供应商信息，供应商编号不能空!');
 }
 
 $id = remove_unsafe_char($_GET['id']);
 if (! is_numeric($id)) {
-    die("供应商编号一定要是数字!");
+    die('供应商编号一定要是数字!');
 }
 
 $sql = "select * from supplier where sid='$id'";
 $result = mysql_query($sql, $db);
-if (!$result) {
-    die("查询供应商信息失败! " . mysql_error());
+if (! $result) {
+    die('查询供应商信息失败! '.mysql_error());
 }
 $row = mysql_fetch_array($result);
-if (!$row) {
-    die("数据库没有该供应商的信息!");
+if (! $row) {
+    die('数据库没有该供应商的信息!');
 }
 mysql_close($db);
-include("../template/header.html");
+include '../template/header.html';
 ?>
 <section class="content-header"><h1>供应商管理</h1></section>
 <section class="content">
@@ -39,11 +39,11 @@ include("../template/header.html");
                         </div>
                         <div class="form-control">
                             <label for="sex">性别</label>
-                            <input type="radio" name="sex" value="男" <?php if ($row['sex']=='男') {
-    echo "checked";
+                            <input type="radio" name="sex" value="男" <?php if ('男' == $row['sex']) {
+    echo 'checked';
 } ?>> 男
-                            <input type="radio" name="sex" value="女" <?php if ($row['sex']=='女') {
-    echo "checked";
+                            <input type="radio" name="sex" value="女" <?php if ('女' == $row['sex']) {
+    echo 'checked';
 } ?>> 女
                         </div>
                         <div class="form-group">
@@ -69,4 +69,4 @@ include("../template/header.html");
     </div>
 </section>
 <?php
-include("../template/footer.html");
+include '../template/footer.html';

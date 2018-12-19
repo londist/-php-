@@ -1,29 +1,29 @@
 <?php
-include("../db_conn.php");
-include("../util.php");
+include '../db_conn.php';
+include '../util.php';
 handle_login();
 utf8();
 if (! isset($_GET['id'])) {
-    die("编辑食材，请输入食材的编号!");
+    die('编辑食材，请输入食材的编号!');
 }
 
 $id = $_GET['id'];
 if (! is_numeric($id)) {
-    die("食材的编号一定要是数字!");
+    die('食材的编号一定要是数字!');
 }
 
 $id = remove_unsafe_char($id);
 $sql = "select * from ingredient where mid='$id'";
 $result = mysql_query($sql, $db);
 if (! $result) {
-    die("查询食材信息失败! <br/>" . mysql_error());
+    die('查询食材信息失败! <br/>'.mysql_error());
 }
 $row = mysql_fetch_array($result);
 if (! $row) {
-    die("没有该食材的信息!");
+    die('没有该食材的信息!');
 }
 mysql_close($db);
-include("../template/header.html");
+include '../template/header.html';
 ?>
 <section class="content-header"><h1>食材管理</h1></section>
 <section class="content">
@@ -52,4 +52,4 @@ include("../template/header.html");
     </div>
 </section>
 <?php
-include("../template/footer.html");
+include '../template/footer.html';

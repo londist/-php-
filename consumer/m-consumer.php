@@ -1,8 +1,8 @@
 <?php
-include("../util.php");
+include '../util.php';
 handle_login();
 utf8();
-include("../template/header.html");
+include '../template/header.html';
 ?>
 <section class="content-header"><h1>消费者管理</h1></section>
 <section class="content">
@@ -54,5 +54,5 @@ include("../template/header.html");
     </div>
 </section>
 <?php
-include("../template/footer.html");
+include '../template/footer.html';
 ?>

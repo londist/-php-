@@ -1,11 +1,11 @@
 <?php
-include("../db_conn.php");
-include("../util.php");
+include '../db_conn.php';
+include '../util.php';
 handle_login();
 utf8();
 
 if (empty($_GET['id'])) {
-    die("查询工人信息，姓名或编号不能为空");
+    die('查询工人信息，姓名或编号不能为空');
 }
 $id = remove_unsafe_char($_GET['id']);
 if (is_numeric($id)) {
@@ -16,10 +16,10 @@ if (is_numeric($id)) {
 
 $result = mysql_query($sql, $db);
 if (! $result) {
-    die("查询工人信息失败" . mysql_error());
+    die('查询工人信息失败'.mysql_error());
 }
 
-include("../template/header.html");
+include '../template/header.html';
 ?>
 <section class="content-header"><h1>员工管理</h1></section>
 <section class="content">
@@ -37,12 +37,12 @@ include("../template/header.html");
                         </tr>
 <?php
 while ($row = mysql_fetch_array($result)) {
-    echo "<tr><td>" .
-        $row['wid'] . "</td><td>" .
-        $row['wname'] ."</td><td>" .
-        $row['sex'] . "</td><td>" .
-        $row['jname'] . "</td><td>" .
-        $row['salary'] . "</td></tr>" ;
+    echo '<tr><td>'.
+        $row['wid'].'</td><td>'.
+        $row['wname'].'</td><td>'.
+        $row['sex'].'</td><td>'.
+        $row['jname'].'</td><td>'.
+        $row['salary'].'</td></tr>';
 }
 mysql_close($db);
 ?>
@@ -53,5 +53,5 @@ mysql_close($db);
     </div>
 </section>
 <?php
-include("../template/footer.html");
+include '../template/footer.html';
 ?>

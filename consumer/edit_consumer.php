@@ -1,12 +1,12 @@
 <?php
-include("../db_conn.php");
-include("../util.php");
+include '../db_conn.php';
+include '../util.php';
 
 handle_login();
 utf8();
 
 if (! isset($_GET['sid'])) {
-    die("请输入学号!");
+    die('请输入学号!');
 }
 
 $sid = remove_unsafe_char($_GET['sid']);
@@ -16,7 +16,7 @@ if (! $row) {
 }
 
 mysql_close($db);
-include("../template/header.html");
+include '../template/header.html';
 ?>
 <section class="content-header"><h1>编辑消费者信息</h1></section>
 <section class="content">
@@ -57,4 +57,4 @@ include("../template/header.html");
     </div>
 </section>
 <?php
-include("../template/footer.html");
+include '../template/footer.html';

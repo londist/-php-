@@ -1,16 +1,16 @@
 <?php
-include("../db_conn.php");
-include("../util.php");
+include '../db_conn.php';
+include '../util.php';
 handle_login();
 utf8();
 
-$sql = "select * from ingredient";
+$sql = 'select * from ingredient';
 $result = mysql_query($sql, $db);
 if (! $result) {
-    die("查询食材失败 !" . mysql_error());
+    die('查询食材失败 !'.mysql_error());
 }
 $n = 1;
-include("../template/header.html");
+include '../template/header.html';
 ?>
 <section class="content-header"><h1>食材管理</h1></section>
 <section class="content">
@@ -50,7 +50,7 @@ include("../template/header.html");
                         </tr>
 <?php
 while ($row = mysql_fetch_array($result)) {
-    echo "<tr><td>".$row['mid']."</td><td>".$row['name']."</td><td>".$row['description']."</td><td><a href='del_ingredient.php?id=".$row['mid']."' onclick=\"return confirm('确定删除?'); \" >删除</a>  <a href='edit_ingredient.php?id=".$row['mid']."'>编辑</a></td></tr>";
+    echo '<tr><td>'.$row['mid'].'</td><td>'.$row['name'].'</td><td>'.$row['description']."</td><td><a href='del_ingredient.php?id=".$row['mid']."' onclick=\"return confirm('确定删除?'); \" >删除</a>  <a href='edit_ingredient.php?id=".$row['mid']."'>编辑</a></td></tr>";
 }
 
 mysql_close($db);
@@ -62,4 +62,4 @@ mysql_close($db);
     </div>
 </section>
 <?php
-include("../template/footer.html");
+include '../template/footer.html';

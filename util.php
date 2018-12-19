@@ -1,4 +1,5 @@
 <?php
+
 function is_user()
 {
     @session_start();
@@ -21,12 +22,12 @@ function is_admin()
 
 function to_login()
 {
-    Header("Location: /auth/login.html");
+    header('Location: /auth/login.html');
     exit;
 }
 function handle_login()
 {
-    if (is_admin() == 0) {
+    if (0 == is_admin()) {
         to_login();
     }
 }
@@ -34,8 +35,8 @@ function handle_login()
 function m1_login()
 {
     session_start();
-    if (!isset($_SESSION['m1']) and !isset($_SESSION['admin'])) {
-        Header("Location: /auth/login.html");
+    if (! isset($_SESSION['m1']) and ! isset($_SESSION['admin'])) {
+        header('Location: /auth/login.html');
         exit;
     }
 }
@@ -43,30 +44,32 @@ function m1_login()
 function m2_login()
 {
     session_start();
-    if (!isset($_SESSION['m2']) and !isset($_SESSION['admin'])) {
-        Header("Location: auth/login.html");
+    if (! isset($_SESSION['m2']) and ! isset($_SESSION['admin'])) {
+        header('Location: auth/login.html');
         exit;
     }
 }
 
 function has_unsafe_char($str)
 {
-    $chars = array(" ","%","/","\\",'"',"'","=",">",'<');
+    $chars = [' ', '%', '/', '\\', '"', "'", '=', '>', '<'];
     foreach ($chars as $value) {
         if (strpos($str, $value)) {
             return 1;
         }
     }
+
     return 0;
 }
 
 function remove_unsafe_char($str)
 {
     $temp = $str;
-    $chars = array(" ","%","/","\\",'"',"'","=",">",'<');
+    $chars = [' ', '%', '/', '\\', '"', "'", '=', '>', '<'];
     foreach ($chars as $value) {
         $temp = str_replace($value, '', $temp);
     }
+
     return $temp;
 }
 
@@ -77,15 +80,16 @@ function referer($str)
     } else {
         $url = $_SERVER['HTTP_REFERER'];
     }
+
     return $url;
 }
 
 function junmto($str)
 {
-    Header("Location: $str");
+    header("Location: $str");
 }
 
 function utf8()
 {
-    header("Content-type: text/html; charset=utf-8");
+    header('Content-type: text/html; charset=utf-8');
 }

@@ -1,8 +1,8 @@
 <?php
-include("../util.php");
+include '../util.php';
 is_user();
 utf8();
-include("../template/header.html");
+include '../template/header.html';
 ?>
 <section class="content-header"><h1>修改密码</h1></section>
 <section class="content">
@@ -11,7 +11,7 @@ include("../template/header.html");
             <div class="box">
                 <form action="update_pwd_handler.php" method="post">
                     <div class="box-body">
-                        <p><?php echo "用户：" . $_SESSION['user']; ?></p>
+                        <p><?php echo '用户：'.$_SESSION['user']; ?></p>
                         <div class="form-group">
                             <label for="pw0">旧密码</label>
                             <input type="password" name="pw0" class="form-control">
@@ -34,4 +34,4 @@ include("../template/header.html");
     </div>
 </section>
 <?php
-include("template/footer.html");
+include 'template/footer.html';

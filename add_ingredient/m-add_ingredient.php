@@ -1,28 +1,28 @@
 <?php
-include("../db_conn.php");
-include("../util.php");
+include '../db_conn.php';
+include '../util.php';
 m1_login();
 
 utf8();
-$sql_mate = "select * from ingredient";
-$sql_supp = "select * from supplier";
-$sql_work = "select * from staff";
+$sql_mate = 'select * from ingredient';
+$sql_supp = 'select * from supplier';
+$sql_work = 'select * from staff';
 
 $result_1 = mysql_query($sql_mate, $db);
 $result_2 = mysql_query($sql_supp, $db);
 $result_3 = mysql_query($sql_work, $db);
 
 if (! $result_1) {
-    die("查询食材记录失败" . mysql_error());
+    die('查询食材记录失败'.mysql_error());
 }
 if (! $result_2) {
-    die("查询供应商失败" . mysql_error());
+    die('查询供应商失败'.mysql_error());
 }
 if (! $result_3) {
-    die("查询员工信息失败" . mysql_error());
+    die('查询员工信息失败'.mysql_error());
 }
 
-include("../template/header.html");
+include '../template/header.html';
 ?>
 <section class="content-header"><h1>食材进货管理</h1></section>
 <section class="content">
@@ -38,7 +38,7 @@ include("../template/header.html");
                             <select name="ingredient" class="form-control">
                                 <?php
                                     while ($row_1 = mysql_fetch_array($result_1)) {
-                                        echo "<option value='".$row_1['mid']."'>".$row_1['name']."</option>";
+                                        echo "<option value='".$row_1['mid']."'>".$row_1['name'].'</option>';
                                     }
                                 ?>
                             </select>
@@ -48,7 +48,7 @@ include("../template/header.html");
                             <select name="supplier" class="form-control">
                                 <?php
                                     while ($row_2 = mysql_fetch_array($result_2)) {
-                                        echo "<option value='".$row_2['sid']."'>".$row_2['name']."</option>";
+                                        echo "<option value='".$row_2['sid']."'>".$row_2['name'].'</option>';
                                     }
                                 ?>
                             </select>
@@ -58,7 +58,7 @@ include("../template/header.html");
                             <select name="charge" class="form-control">
                                 <?php
                                     while ($row_3 = mysql_fetch_array($result_3)) {
-                                        echo "<option value='".$row_3['wid']."'>".$row_3['name']."</option>";
+                                        echo "<option value='".$row_3['wid']."'>".$row_3['name'].'</option>';
                                     }
                                 ?>
                             </select>
@@ -88,4 +88,4 @@ include("../template/header.html");
     </div>
 </section>
 <?php
-include("../template/footer.html");
+include '../template/footer.html';
