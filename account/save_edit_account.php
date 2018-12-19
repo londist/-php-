@@ -12,7 +12,7 @@ $id = $_POST['id'];
 $us = $_POST['username'];
 $pw = $_POST['password'];
 $pr = $_POST['proi'];
-$has_pw = empty($pw);
+$has_pw = !empty($pw);
 
 if (! is_numeric($id)) {
     die("帐号的编号一定要是数字!");
