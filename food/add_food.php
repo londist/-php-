@@ -4,8 +4,8 @@ include("../util.php");
 handle_login();
 utf8();
 
-if (! isset($_POST['name']) or ! isset($_POST['price'])) {
-    die("添加食物，名称，价格不能为空!");
+if (empty($_POST['name']) or empty($_POST['price'])) {
+    die("添加食物，名称，价格都不能为空!");
 }
 
 $name = $_POST['name'];
@@ -16,7 +16,14 @@ $name = remove_unsafe_char($name);
 $price = remove_unsafe_char($price);
 $desc = remove_unsafe_char($desc);
 
-$sql = "insert into food (name,description,price) values ('$name','$desc',$price) ";
+$sql = "select * from food where name = '$name';";
+$result = mysql_query($sql, $db);
+$row = mysql_fetch_array($result);
+if (!$row['fid']=="") {
+    die("不允许添加同名的食材，请尝试使用下方的编辑按钮，以避免不必要的混淆");
+}
+
+$sql = "insert into food (name,description,price) values ('$name','$desc','$price');";
 $result = mysql_query($sql, $db);
 if (! $result) {
     die("添加食物失败! " . mysql_error());
