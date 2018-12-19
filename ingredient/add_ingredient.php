@@ -1,6 +1,7 @@
 <?php
-include("../db_conn.php");
-include("../util.php");
+
+include '../db_conn.php';
+include '../util.php';
 handle_login();
 utf8();
 
@@ -9,7 +10,7 @@ if (empty($_POST['name'])) {
 }
 
 $name = $_POST['name'];
-$desc = isset($_POST['desc']) ? $_POST['desc'] : "";
+$desc = isset($_POST['desc']) ? $_POST['desc'] : '';
 
 $name = remove_unsafe_char($name);
 $desc = remove_unsafe_char($desc);
@@ -17,7 +18,7 @@ $desc = remove_unsafe_char($desc);
 $sql = "insert into ingredient (name,description) values ('$name','$desc') ";
 $result = mysql_query($sql, $db);
 if (! $result) {
-    die("添加食材失败! " . mysql_error());
+​    die('添加食材失败! '.mysql_error());
 }
 
 echo "<script>alert('成功添加食材');location='./m-ingredient.php'</script>";

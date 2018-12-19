@@ -1,9 +1,9 @@
 <?php
-include("../db_conn.php");
-include("../util.php");
+include '../db_conn.php';
+include '../util.php';
 handle_login();
 utf8();
-include("../template/header.html");
+include '../template/header.html';
 ?>
 <section class="content-header"><h1>学生管理</h1></section>
 <section class="content">
@@ -64,5 +64,5 @@ include("../template/header.html");
     </div>
 </section>
 <?php
-include("../template/footer.html");
+include '../template/footer.html';
 ?>

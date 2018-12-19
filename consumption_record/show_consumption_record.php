@@ -1,23 +1,23 @@
 <?php
-include("../db_conn.php");
-include("../util.php");
+include '../db_conn.php';
+include '../util.php';
 utf8();
 m2_login();
 
 if (! isset($_GET['id'])) {
-    die("请输入学号");
+    die('请输入学号');
 }
 $id = remove_unsafe_char($_GET['id']);
 if (! is_numeric($id)) {
-    die("学号一定要是数字");
+    die('学号一定要是数字');
 }
 
 $sql = "select * from consumption_record where cid='$id'";
 $result = mysql_query($sql, $db);
 if (! $result) {
-    die("查询消费记录失败<br/>" . mysql_error());
+    die('查询消费记录失败<br/>'.mysql_error());
 }
-include("../template/header.html");
+include '../template/header.html';
 ?>
 <section class="content-header"><h1>消费记录</h1></section>
 <section class="content">
@@ -26,7 +26,7 @@ include("../template/header.html");
             <p>
                 消费者：
                 <a href="../consumer/search_consumer.php?id=<?php echo $id; ?>">
-                    <?php $stu = mysql_fetch_row(mysql_query("select name from student where sid='$id'")); echo $stu[0];  ?>
+                    <?php $stu = mysql_fetch_row(mysql_query("select name from student where sid='$id'")); echo $stu[0]; ?>
                 </a>
             </p>
             <div class="box table-responsive no-padding">
@@ -43,8 +43,8 @@ include("../template/header.html");
 <?php
 $n = 1;
 while ($row = mysql_fetch_array($result)) {
-    $temp = $row['operator'] == 1 ? "消费" : "充值";
-    echo "<tr><td>$n</td><td><a href='../consumer/search_consumer.php?id=".$row['cid']."'>".$row['cid']."</a></td><td>$temp</td><td>".$row['money']."</td><td>".$row['last_modified']."</td></tr>";
+    $temp = 1 == $row['operator'] ? '消费' : '充值';
+    echo "<tr><td>$n</td><td><a href='../consumer/search_consumer.php?id=".$row['cid']."'>".$row['cid']."</a></td><td>$temp</td><td>".$row['money'].'</td><td>'.$row['last_modified'].'</td></tr>';
     $n = $n + 1;
 }
 mysql_close($db);
@@ -56,4 +56,4 @@ mysql_close($db);
     </div>
 </section>
 <?php
-include("../template/footer.html");
+include '../template/footer.html';

@@ -1,15 +1,15 @@
 <?php
-include("../db_conn.php");
-include("../util.php");
+include '../db_conn.php';
+include '../util.php';
 utf8();
 m2_login();
 
-$sql = "select * from consumption_record";
+$sql = 'select * from consumption_record';
 $result = mysql_query($sql, $db);
 if (! $result) {
-    die("查询消费记录失败<br/>" . mysql_error());
+    die('查询消费记录失败<br/>'.mysql_error());
 }
-include("../template/header.html");
+include '../template/header.html';
 ?>
 <section class="content-header"><h1>消费记录</h1></section>
 <section class="content">
@@ -46,8 +46,8 @@ include("../template/header.html");
 <?php
 $n = 1;
 while ($row = mysql_fetch_array($result)) {
-    $temp = $row['operator'] == 1 ? "消费" : "充值";
-    echo "<tr><td>$n</td><td><a href='../consumer/search_consumer.php?id=".$row['cid']."'>".$row['cid']."</a></td><td>$temp</td><td>".$row['money']."</td><td>".$row['last_modified']."</td></tr>";
+    $temp = 1 == $row['operator'] ? '消费' : '充值';
+    echo "<tr><td>$n</td><td><a href='../consumer/search_consumer.php?id=".$row['cid']."'>".$row['cid']."</a></td><td>$temp</td><td>".$row['money'].'</td><td>'.$row['last_modified'].'</td></tr>';
     $n = $n + 1;
 }
 mysql_close($db);
@@ -59,4 +59,4 @@ mysql_close($db);
     </div>
 </section>
 <?php
-include("../template/footer.html");
+include '../template/footer.html';

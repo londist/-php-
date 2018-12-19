@@ -1,12 +1,12 @@
 <?php
-include("../db_conn.php");
-include("../util.php");
+include '../db_conn.php';
+include '../util.php';
 handle_login();
-header("Content-type: text/html; charset=utf-8");
+header('Content-type: text/html; charset=utf-8');
 
-$sql = "select * from student,consumer where consumer.cid=student.sid";
+$sql = 'select * from student,consumer where consumer.cid=student.sid';
 $result = mysql_query($sql, $db);
-include("../template/header.html");
+include '../template/header.html';
 ?>
 <section class="content-header"><h1>所有消费者信息</h1></section>
 <section class="content">
@@ -25,7 +25,7 @@ include("../template/header.html");
                         </tr>
 <?php
 while ($row = mysql_fetch_array($result)) {
-    echo "<tr><td>".$row['sid'] ."</td><td>". $row['name'] ."</td><td>". $row['sex'] ."</td><td>". $row['tel'] ."</td><td>". $row['cur_money'] ."</td><td><a href=edit_consumer.php?sid=" . $row['sid'] . ">编辑</a></td></tr>";
+    echo '<tr><td>'.$row['sid'].'</td><td>'.$row['name'].'</td><td>'.$row['sex'].'</td><td>'.$row['tel'].'</td><td>'.$row['cur_money'].'</td><td><a href=edit_consumer.php?sid='.$row['sid'].'>编辑</a></td></tr>';
 }
 mysql_close($db);
 ?>
@@ -36,5 +36,5 @@ mysql_close($db);
     </div>
 </section>
 <?php
-include("../template/footer.html");
+include '../template/footer.html';
 ?>

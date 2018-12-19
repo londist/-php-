@@ -1,9 +1,9 @@
 <?php
-include("../util.php");
-include("../db_conn.php");
+include '../util.php';
+include '../db_conn.php';
 handle_login();
 utf8();
-include("../template/header.html");
+include '../template/header.html';
 ?>
 <section class="content-header"><h1>供应商管理</h1></section>
 <section class="content">
@@ -60,13 +60,13 @@ include("../template/header.html");
                         <th>操作</th>
                     </tr>
 <?php
-$sql = "select * from supplier";
+$sql = 'select * from supplier';
 $result = mysql_query($sql, $db);
 if (! $result) {
-    die("查询供应商失败" . mysql_error());
+    die('查询供应商失败'.mysql_error());
 }
 while ($row = mysql_fetch_array($result)) {
-    echo "<tr><td>".$row['sid']."</td><td>".$row['name']."</td><td>".$row['sex']."</td><td>".$row['tel']."</td><td>".$row['address']."</td><td>".$row['description']."</td><td>".$row['last_modified']."</td><td><a href='del_supplier.php?id=".$row['sid']."' onclick=\"return confirm('确定删除?'); \">删除</a>  &nbsp;<a href='edit_supplier.php?id=".$row['sid']."'>编辑</a></td></tr>";
+    echo '<tr><td>'.$row['sid'].'</td><td>'.$row['name'].'</td><td>'.$row['sex'].'</td><td>'.$row['tel'].'</td><td>'.$row['address'].'</td><td>'.$row['description'].'</td><td>'.$row['last_modified']."</td><td><a href='del_supplier.php?id=".$row['sid']."' onclick=\"return confirm('确定删除?'); \">删除</a>  &nbsp;<a href='edit_supplier.php?id=".$row['sid']."'>编辑</a></td></tr>";
 }
 
 mysql_close($db);
@@ -78,4 +78,4 @@ mysql_close($db);
     </div>
 </section>
 <?php
-include("../template/footer.html");
+include '../template/footer.html';
