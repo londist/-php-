@@ -1,3 +1,4 @@
+<meta charset="utf-8" />
 <?php
 $username = "root";
 $password = "root";
@@ -32,7 +33,7 @@ $supplier = "create table if not exists supplier (
     last_modified datetime)";
 
 //职位
-$position = "create table if not exists position (
+$jobs = "create table if not exists jobs (
     jid int primary key auto_increment,
     name char(100) not null,
     salary float )";   //薪水
@@ -44,7 +45,7 @@ $staff = "create table if not exists staff (
     sex char(3) ,
     jid int,
     birth date,
-    foreign key (jid) references position(jid))";
+    foreign key (jid) references jobs(jid))";
 
 // 食材
 $ingredient = "create table if not exists ingredient (
@@ -110,7 +111,7 @@ function mydie($info)
 create_table($student, "student");
 create_table($consumer, "consumer");
 create_table($supplier, "supplier");
-create_table($position, "position");
+create_table($jobs, "jobs");
 create_table($staff, "staff");
 create_table($ingredient, "ingredient");
 create_table($food, "food");
@@ -119,9 +120,9 @@ create_table($consumption_record, "consumption_record");
 create_table($account, "account");
 
 
-function add_position()
+function add_jobs()
 {
-    $sql = "insert into position (name) values ('系统管理员')";
+    $sql = "insert into jobs (name) values ('系统管理员')";
     if (! mysql_query($sql, $db)) {
         mydie("创建职位失败<br>");
     } else {
@@ -145,7 +146,7 @@ function add_admin()
     global $db;
     $canteen_admin = "admin";
     $canteen_admin_pwd = "admin";
-    $canteen_admin_pwd_cry = md5($canteen_admin_pass);
+    $canteen_admin_pwd_cry = md5($canteen_admin_pwd);
     $sql = "insert into account (username,password,proi) values ('$canteen_admin','$canteen_admin_pwd_cry',0)";
     if (! mysql_query($sql, $db)) {
         echo("创建管理员失败<br>");
