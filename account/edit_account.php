@@ -39,7 +39,7 @@ include("../template/header.html");
                         </div>
                         <div class="form-group">
                             <label for="password">密码</label>
-                            <input type="password" name="password" class="form-control">
+                            <input type="password" name="password" class="form-control" placeholder="此项留空则保持原来的密码不变">
                         </div>
                         <div class="form-group">
                             <label for="proi">用户名</label>
