@@ -14,7 +14,7 @@ if (! is_numeric($id)) {
 }
 
 $id = remove_unsafe_char($id);
-$sql = "select * from position where jid='$id'";
+$sql = "select * from jobs where jid='$id'";
 
 $result = mysql_query($sql, $db);
 if (! $result) {
@@ -36,7 +36,7 @@ include("../template/header.html");
         <div class="col-md-12">
             <div class="box box-primary">
                 <div class="box-header with-border">编辑</div>
-                <form action="save_edit_position.php" method="post">
+                <form action="save_edit_jobs.php" method="post">
                     <div class="box-body">
                         <div class="form-group">
                             <label>职位名称</label>

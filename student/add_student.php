@@ -8,6 +8,8 @@ header('Content-Type:text/html;charset=utf-8');
 if (isset($_POST['id']) and isset($_POST['name'])) {
     $id = $_POST['id'];
     $name = $_POST['name'];
+    if (empty($id) || empty($name))
+        die("学号或姓名不能为空");
     $sex = isset($_POST['sex']) ? ($_POST['sex']) : "?";
     $tel = isset($_POST['tel']) ? ($_POST['tel']) : "";
     if (has_unsafe_char($id) or has_unsafe_char($name) or has_unsafe_char($sex) or has_unsafe_char($tel)) {

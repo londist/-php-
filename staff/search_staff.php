@@ -1,10 +1,10 @@
 <?php
-include("../conn.php");
+include("../db_conn.php");
 include("../util.php");
 handle_login();
 utf8();
 
-if (! isset($_GET['id'])) {
+if (empty($_GET['id'])) {
     die("查询工人信息，姓名或编号不能为空");
 }
 $id = remove_unsafe_char($_GET['id']);

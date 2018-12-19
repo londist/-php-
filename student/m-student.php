@@ -1,5 +1,6 @@
 <?php
-include("../db_util.php");
+include("../db_conn.php");
+include("../util.php");
 handle_login();
 utf8();
 include("../template/header.html");

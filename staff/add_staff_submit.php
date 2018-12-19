@@ -4,8 +4,8 @@ include("../util.php");
 handle_login();
 utf8();
 
-if (!isset($_POST['name']) or !isset($_POST['sex']) or !isset($_POST['job'])) {
-    die("添加工人信息中，姓名，性别和职位不能为空!");
+if (empty($_POST['name']) or empty($_POST['sex']) or empty($_POST['job'])) {
+    die("添加工人信息中，姓名，性别和职位都不能为空!");
 }
 
 $name = $_POST['name'];

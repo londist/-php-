@@ -16,7 +16,7 @@ include("../template/header.html");
                 <div class="box-header with-border">
                     <h3 class="box-title">添加职位</h3>
                 </div>
-                <form action="add_position.php" method="post">
+                <form action="add_jobs.php" method="post">
                     <div class="box-body">
                         <div class="form-group">
                             <label for="name">职位名称</label>
@@ -48,9 +48,9 @@ include("../template/header.html");
 <?php
 while ($row = mysql_fetch_array($result)) {
     echo "<tr><td>" . $row['name'] . "</td><td>" . $row['salary'] .
-    "</td><td><a href='del_position.php?id=" . $row['jid'] .
+    "</td><td><a href='del_jobs.php?id=" . $row['jid'] .
     "' onclick=\"return confirm('确认删除?'); \">删除该职位</a>" .
-    "&nbsp;&nbsp;<a href='edit_position.php?id=" . $row['jid'] . "'>编辑</a></td></tr>";
+    "&nbsp;&nbsp;<a href='edit_jobs.php?id=" . $row['jid'] . "'>编辑</a></td></tr>";
 }
 
 mysql_close($db);

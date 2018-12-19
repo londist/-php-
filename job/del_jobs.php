@@ -14,13 +14,13 @@ if (! is_numeric($id)) {
 }
 
 $id = remove_unsafe_char($id);
-$sql = "delete from position where jid='$id'";
+$sql = "delete from jobs where jid='$id'";
 
 $result = mysql_query($sql, $db);
 if (! $result) {
     die("删除职位失败!" . mysql_error());
 }
 
-$url = referer("m-position.php");
+$url = referer("m-jobs.php");
 echo "<script>alert('成功删除职位');location='$url'</script>";
 mysql_close($db);

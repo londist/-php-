@@ -24,11 +24,11 @@ if (mysql_num_rows(mysql_query($sql, $db)) == 0) {
     die("职位中没有该记录" . $id);
 }
 
-$sql_update = "update position set name='$name' , salary=$salary where jid='$id'";
+$sql_update = "update jobs set name='$name' , salary=$salary where jid='$id'";
 $result = mysql_query($sql_update, $db);
 if (! $result) {
     die("修改职位失败! <br/>" . mysql_error());
 }
 
-echo "<script>alert('成功修改职位');location='./m-position.php'</script>";
+echo "<script>alert('成功修改职位');location='./m-jobs.php'</script>";
 mysql_close($db);

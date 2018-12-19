@@ -28,7 +28,7 @@ include("../template/header.html");
                             <input type="password" name="password" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="proi">用户名</label>
+                            <label for="proi">权限</label>
                             <select name="proi" class="form-control">
                                 <option value="1">进货记录员</option>
                                 <option value="2">消费查询员</option>

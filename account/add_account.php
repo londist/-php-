@@ -4,8 +4,8 @@ include("../util.php");
 handle_login();
 utf8();
 
-if (!isset($_POST['username']) or !isset($_POST['password']) or !isset($_POST['proi'])) {
-    die("添加帐号，用户名，密码，用户权限不能为空!");
+if (empty($_POST['username']) or empty($_POST['password']) or empty($_POST['proi'])) {
+    die("添加帐号，用户名，密码，用户权限都不能为空!");
 }
 
 $us = $_POST['username'];

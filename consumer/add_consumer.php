@@ -7,6 +7,9 @@ header('Content-Type:text/html;charset=utf-8');
 if (isset($_POST['id']) and isset($_POST['money'])) {
     $id = $_POST['id'];
     $money = $_POST['money'];
+    if (empty($id) || empty($money))
+        die("学号或金额不能为空");
+    
     if (has_unsafe_char($id) or has_unsafe_char($money)) {
         die("不允许加入特殊字符!<br>");
     }
