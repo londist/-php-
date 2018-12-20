@@ -16,6 +16,7 @@ include '../template/header.html';
     <div class="row">
         <div class="col-md-12">
             <div class="box">
+            <div class="box-header">模拟就餐刷卡</div>
                 <form action="show_consumption_record.php" method="get">
                     <div class="box-body">
                         <div class="form-group">

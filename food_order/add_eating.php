@@ -2,6 +2,7 @@
 include '../db_conn.php';
 include '../util.php';
 utf8();
+m2_login();
 
 $sql = 'select * from food';
 $result = mysql_query($sql, $db);
@@ -10,7 +11,7 @@ if (! isset($result)) {
 }
 include '../template/header.html';
 ?>
-<section class="content-header"><h1>消费记录</h1></section>
+<section class="content-header"><h1>点餐管理</h1></section>
 <section class="content">
     <div class="row">
         <div class="col-md-12">

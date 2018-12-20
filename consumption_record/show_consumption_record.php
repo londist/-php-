@@ -4,9 +4,10 @@ include '../util.php';
 utf8();
 m2_login();
 
-if (! isset($_GET['id'])) {
+if ( empty($_GET['id'])) {
     die('请输入学号');
 }
+
 $id = remove_unsafe_char($_GET['id']);
 if (! is_numeric($id)) {
     die('学号一定要是数字');
@@ -34,8 +35,8 @@ include '../template/header.html';
                 <div class="box-body">
                     <table class="table table-hover">
                         <tr>
-                            <th>序号</th>
                             <th>编号</th>
+                            <th>学号</th>
                             <th>消费类型</th>
                             <th>金额</th>
                             <th>时间</th>
