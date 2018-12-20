@@ -6,12 +6,16 @@ handle_login();
 utf8();
 
 if (! isset($_GET['id'])) {
-    die('删除帐号，请输入帐号的编号!');
+    echo "<script type='text/javascript'>alert('要删除账户，请先输入账户的编号！');</script>";
+    header('refresh:0.4;url=../account/m-account.php');
+    die();
 }
 
 $id = $_GET['id'];
 if (! is_numeric($id)) {
-    die('帐号的编号一定要是数字!');
+    echo "<script type='text/javascript'>alert('帐号的编号一定要是数字！');</script>";
+    header('refresh:0.4;url=../account/m-account.php');
+    die();
 }
 
 $id = remove_unsafe_char($id);

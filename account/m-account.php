@@ -61,7 +61,9 @@ while ($row = mysql_fetch_array($result)) {
     } elseif ($row['proi']) {
         $s_proi = '消费查询员';
     } else {
-        die('权限分配出错!');
+        echo "<script type='text/javascript'>alert('权限分配出错！');</script>";
+        header('refresh:0.4;url=../account/m-account.php');
+        die();
     }
     echo '<tr><td>'.$row['id'].'</td><td>'.$row['username'].'</td><td>'.$s_proi."</td><td><a href='del_account.php?id=".$row['id']."' onclick=\"return confirm('确定删除?'); \" >删除</a>  <a href='edit_account.php?id=".$row['id']."'>编辑</a></td></tr>";
 }

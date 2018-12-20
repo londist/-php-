@@ -9,20 +9,17 @@ $db_name = 'canteen';
 $db = mysql_connect($hostname, $username, $password);
 mysql_select_db($db_name, $db);
 
-//学生表
 $student = 'create table if not exists student (
     sid char(10) primary key,
     name char(10) not null,
     sex char(3) not null,
     tel varchar(13)) engine=innodb';
 
-// 消费者
 $consumer = 'create table if not exists consumer (
     cid char(10) primary key ,
     cur_money float,
     foreign key (cid) references student(sid) on delete cascade on update cascade ) engine=innodb';
 
-//供应商
 $supplier = 'create table if not exists supplier (
     sid int primary key auto_increment,
     name char(10) not null,
@@ -32,13 +29,11 @@ $supplier = 'create table if not exists supplier (
     description char(200),
     last_modified datetime)';
 
-//职位
 $jobs = 'create table if not exists jobs (
     jid int primary key auto_increment,
     name char(100) not null,
-    salary float )';   //薪水
+    salary float )';
 
-//饭堂员工
 $staff = 'create table if not exists staff (
     wid int primary key auto_increment,
     name char(10) not null,
@@ -47,20 +42,17 @@ $staff = 'create table if not exists staff (
     birth date,
     foreign key (jid) references jobs(jid))';
 
-// 食材
 $ingredient = 'create table if not exists ingredient (
     mid int primary key auto_increment,
     name char(20),
     description char(200))';
 
-// 食物
 $food = 'create table if not exists food (
     fid int primary key auto_increment,
     name char(20),
     description char(200),
     price float not null)';
 
-// 食材进货表
 $add_ingredient = 'create table if not exists add_ingredient (
     aid int primary key auto_increment,
     mid int,
@@ -73,7 +65,6 @@ $add_ingredient = 'create table if not exists add_ingredient (
     foreign key (sid) references supplier(sid),
     foreign key (charge) references staff(wid))';
 
-// 消费记录
 $consumption_record = 'create table if not exists consumption_record (
     id int primary key auto_increment,
     cid char(10),
@@ -83,7 +74,6 @@ $consumption_record = 'create table if not exists consumption_record (
     add_date date,
     foreign key (cid) references consumer(cid))';
 
-// 帐号表
 $account = 'create table if not exists account (
     id int primary key auto_increment,
     username char(20) not null unique,

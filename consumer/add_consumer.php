@@ -12,6 +12,7 @@ if (isset($_POST['id']) and isset($_POST['money'])) {
         die('学号或金额不能为空');
     }
 
+
     if (has_unsafe_char($id) or has_unsafe_char($money)) {
         die('不允许加入特殊字符!<br>');
     }
@@ -21,7 +22,8 @@ if (isset($_POST['id']) and isset($_POST['money'])) {
     $sql = "insert into consumer values ('$id','$money')";
     $result = mysql_query($sql, $db);
     if (! $result) {
-        die('添加消费者信息失败<br/>'.mysql_error());
+        echo "<script>alert('添加消费者信息失败！请先添加该学生的学生信息。');</script>";
+        header("refresh:0.4;url='../consumer/m-consumer.php';");
     } else {
         $url = referer('m-consumer.php');
         echo "<script>alert('成功添加一个消费者信息!');location='$url'</script>";

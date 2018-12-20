@@ -4,12 +4,16 @@ include '../util.php';
 handle_login();
 utf8();
 if (! isset($_GET['id'])) {
-    die('编辑帐号，请输入帐号的编号!');
+    echo "<script type='text/javascript'>alert('要编辑帐号，请先输入帐号的编号！');</script>";
+    header('refresh:0.4;url=../account/m-account.php');
+    die();
 }
 
 $id = $_GET['id'];
 if (! is_numeric($id)) {
-    die('帐号的编号一定要是数字!');
+    echo "<script type='text/javascript'>alert('帐号的编号一定要是数字！');</script>";
+    header('refresh:0.4;url=../account/m-account.php');
+    die();
 }
 
 $id = remove_unsafe_char($id);
@@ -20,7 +24,9 @@ if (! $result) {
 }
 $row = mysql_fetch_array($result);
 if (! $row) {
-    die('没有该帐号的信息!');
+    echo "<script type='text/javascript'>alert('没有该帐号的信息！');</script>";
+    header('refresh:0.4;url=../account/m-account.php');
+    die();
 }
 mysql_close($db);
 include '../template/header.html';

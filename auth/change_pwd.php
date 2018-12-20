@@ -9,7 +9,7 @@ include '../template/header.html';
     <div class="row">
         <div class="col-md-12">
             <div class="box">
-                <form action="update_pwd_handler.php" method="post">
+                <form action="change_pwd_handler.php" method="post">
                     <div class="box-body">
                         <p><?php echo '用户：'.$_SESSION['user']; ?></p>
                         <div class="form-group">
@@ -34,4 +34,4 @@ include '../template/header.html';
     </div>
 </section>
 <?php
-include 'template/footer.html';
+include '../template/footer.html';

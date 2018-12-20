@@ -6,7 +6,9 @@ handle_login();
 utf8();
 
 if (empty($_POST['username']) or empty($_POST['password']) or empty($_POST['proi'])) {
-    die('添加帐号，用户名，密码，用户权限都不能为空!');
+    echo "<script type='text/javascript'>alert('添加账户，用户名、密码、权限都不能为空！');</script>";
+    header('refresh:0;url=../account/m-account.php');
+    die(0);
 }
 
 $us = $_POST['username'];
@@ -14,7 +16,9 @@ $pw = $_POST['password'];
 $pr = $_POST['proi'];
 
 if ('1' != $pr and '2' != $pr) {
-    die('添加帐号，分配的权限出错!');
+    echo "<script type='text/javascript'>alert('添加账户，分配的权限出错！');</script>";
+    header('refresh:0.4;url=../account/m-account.php');
+    die(0);
 }
 
 $us = remove_unsafe_char($us);
@@ -23,7 +27,9 @@ $pr = intval(remove_unsafe_char($pr));
 
 $sql_exist = "select * from account where username='$us'";
 if (0 != mysql_num_rows(mysql_query($sql_exist))) {
-    die('用户名 '.$us."已被占用。请试用另一个用户名!<br/><a href='m-account.php'>返回</a>");
+    echo "<script type='text/javascript'>alert('用户名已被占用！请尝试使用另一用户名。');</script>";
+    header('refresh:0.4;url=../account/m-account.php');
+    die(0);
 }
 
 $sql = "insert into account (username,password,proi) values ('$us','$pw',$pr) ";

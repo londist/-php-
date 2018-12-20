@@ -20,7 +20,9 @@ if (! $result) {
 $arr = mysql_fetch_array($result);
 if (! $arr) {
     $ref = $_SERVER['HTTP_REFERER'];
-    echo '用户名或密码错误<br>'."<a href=$ref>返回</a>";
+    echo "<script type='text/javascript'>alert('用户名或密码错误，点击确定按钮重新登录');</script>";
+    header('refresh:0.4;url=/');
+    
 } else {
     session_start();
     switch ($arr['proi']) {
@@ -33,12 +35,10 @@ if (! $arr) {
             $_SESSION['user'] = $username;
             $_SESSION['m1'] = 1;
             header('Location: /ingredient/m-ingredient.php');
-            // no break
         case 2:
             $_SESSION['user'] = $username;
             $_SESSION['m2'] = 1;
             header('Location: /consumption_record/showall_consumption_record.php');
-            // no break
         default:
             echo '权限出错';
             break;
