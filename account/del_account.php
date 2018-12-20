@@ -7,7 +7,7 @@ utf8();
 
 if (! isset($_GET['id'])) {
     echo "<script type='text/javascript'>alert('要删除账户，请先输入账户的编号！');</script>";
-    header('refresh:0.4;url=../account/m-account.php');
+    header('refresh:0;url=../account/m-account.php');
     die();
 }
 

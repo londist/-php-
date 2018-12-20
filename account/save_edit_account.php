@@ -7,7 +7,7 @@ utf8();
 
 if (! isset($_POST['username']) or ! isset($_POST['password']) or ! isset($_POST['id']) or ! isset($_POST['proi'])) {
     echo "<script type='text/javascript'>alert('修改帐号，用户名，密码，权限均不能为空！');</script>";
-    header('refresh:0.4;url=../account/m-account.php');
+    header('refresh:0;url=../account/m-account.php');
     die();
 }
 
