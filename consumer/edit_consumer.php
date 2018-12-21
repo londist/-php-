@@ -27,7 +27,7 @@ include '../template/header.html';
                 <form action="edit_save_consumer.php" method="post">
                     <div class="box-body">
                         <div class="form-group">
-                            <label>编号</label>
+                            <label>学号</label>
                             <input type="text" class="form-control" disabled value="<?php echo $row['sid']; ?>">
                         </div>
                         <div class="form-group">

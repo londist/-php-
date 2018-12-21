@@ -15,7 +15,7 @@ include '../template/header.html';
                 <form action="search_consumer.php" method="get">
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="id">查找消费者 编号：</label>
+                            <label for="id">查找消费者学号：</label>
                             <input type="text" name="id" class="form-control">
                         </div>
                     </div>
@@ -37,7 +37,7 @@ include '../template/header.html';
                 <form action="add_consumer.php" method="post">
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="id">编号</label>
+                            <label for="id">学号</label>
                             <input type="text" name="id" class="form-control">
                         </div>
                         <div class="form-group">

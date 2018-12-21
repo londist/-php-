@@ -1,5 +1,24 @@
 <meta charset="utf-8">
 
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>饭堂就餐管理系统</title>
+    <meta
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+      name="viewport"
+    />
+    <link rel="stylesheet" href="/assets/dist/css/AdminLTE.min.css" />
+  </head>
+
+    <body class="hold-transition login-page">
+        <div style="margin-top:180px">
+            <div class="login-logo">正 在 跳 转 . . .</div>
+        </div>
+    </body>
+</html>
+
 <?php
 
 include '../db_conn.php';
@@ -21,7 +40,7 @@ $arr = mysql_fetch_array($result);
 if (! $arr) {
     $ref = $_SERVER['HTTP_REFERER'];
     echo "<script type='text/javascript'>alert('用户名或密码错误，点击确定按钮重新登录');</script>";
-    header('refresh:0.4;url=/');
+    header('refresh:0.4;url=/auth/login.html');
     
 } else {
     session_start();
@@ -44,4 +63,5 @@ if (! $arr) {
             break;
     }
 }
+
 mysql_close($db);

@@ -1,3 +1,4 @@
+
 <?php
 include '../db_conn.php';
 include '../util.php';
@@ -14,12 +15,30 @@ $id = remove_unsafe_char($id);
 $sql = "select * from student where sid='$id'";
 $result = mysql_query($sql, $db);
 if (! $result) {
-    die('查找学生信息失败!<br>'.mysql_error());
+    echo '<script>alert("查找学生信息失败！请先添加这个学生的信息。");location="./m-student.php"</script>';
+    die(0);
 }
 
 $row = mysql_fetch_array($result);
 if (! $row) {
-    die('没有该学号的学生信息!');
+    echo '<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>饭堂就餐管理系统</title>
+    <meta
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+      name="viewport"
+    />
+    <link rel="stylesheet" href="/assets/dist/css/AdminLTE.min.css" />
+    </head>
+
+    <body class="hold-transition login-page">
+        <div style="margin-top:180px">
+            <div class="login-logo">正 在 跳 转 . . .</div>
+        </div>
+    </body>';
+    echo '<script>alert("没有该学号的学生信息");location="./m-student.php"</script>';
+    die(0);
 }
 mysql_close($db);
 include '../template/header.html';

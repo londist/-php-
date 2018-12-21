@@ -4,8 +4,26 @@ include '../util.php';
 handle_login();
 header('Content-Type:text/html; charset=utf-8');
 
-if (! isset($_GET['id'])) {
-    die('请添加编号<br>');
+if (empty($_GET['id'])) {
+    echo '<html>
+    <head>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <title>饭堂就餐管理系统</title>
+      <meta
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+        name="viewport"
+      />
+      <link rel="stylesheet" href="/assets/dist/css/AdminLTE.min.css" />
+    </head>
+  
+      <body class="hold-transition login-page">
+          <div style="margin-top:180px">
+              <div class="login-logo">正 在 跳 转 . . .</div>
+          </div>
+      </body>
+  </html>';
+    echo '<script>alert("请添加学号");location="./m-consumer.php"</script>';
 }
 
 $id = $_GET['id'];
@@ -19,8 +37,9 @@ if (! $result) {
 
 $row = mysql_fetch_array($result);
 if (! $row) {
-    die('没有该消费者的信息!');
+    echo '<script>alert("没有该消费者的信息！");location="./m-consumer.php"</script>';
 }
+
 mysql_close($db);
 include '../template/header.html';
 ?>
