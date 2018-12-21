@@ -4,7 +4,8 @@ include '../util.php';
 handle_login();
 utf8();
 
-if (! isset($_GET['id'])) {
+if (empty($_GET['id'])) {
+
     die('员工编号不能为空');
 }
 
@@ -35,7 +36,7 @@ include '../template/header.html';
     <div class="row">
         <div class="col-md-12">
             <div class="box box-primary">
-                <div class="box-header with-border">编辑</div>
+                <div class="box-header with-border">编辑员工信息</div>
                 <form action="update_staff_submit.php" method="post">
                     <div class="box-body">
                         <div class="form-group">

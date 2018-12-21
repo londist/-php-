@@ -1,3 +1,22 @@
+<html>
+    <head>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <title>饭堂就餐管理系统</title>
+      <meta
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+        name="viewport"
+      />
+      <link rel="stylesheet" href="/assets/dist/css/AdminLTE.min.css" />
+    </head>
+  
+      <body class="hold-transition login-page">
+          <div style="margin-top:180px">
+              <div class="login-logo">正 在 跳 转 . . .</div>
+          </div>
+      </body>
+  </html>
+  
 <?php
 
 include '../db_conn.php';
@@ -5,8 +24,9 @@ include '../util.php';
 handle_login();
 utf8();
 
-if (! isset($_POST['id']) or ! isset($_POST['name']) or ! isset($_POST['salary'])) {
-    die('职位编号，名称，薪水都不能为空!');
+if (empty($_POST['id']) or empty($_POST['name']) or empty($_POST['salary'])) {
+    echo '<script>alert("职位编号，名称，薪水都不能为空！");location="./m-jobs.php"</script>';
+    die(0);
 }
 
 $id = $_POST['id'];

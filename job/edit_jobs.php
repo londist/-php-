@@ -4,7 +4,7 @@ include '../util.php';
 handle_login();
 utf8();
 
-if (! isset($_GET['id'])) {
+if (empty($_GET['id'])) {
     die('职位编号不能为空');
 }
 
