@@ -3,7 +3,7 @@ include '../db_conn.php';
 include '../util.php';
 handle_login();
 utf8();
-if (! isset($_GET['id'])) {
+if (empty($_GET['id'])) {
     echo "<script type='text/javascript'>alert('要编辑帐号，请先输入帐号的编号！');</script>";
     header('refresh:0;url=../account/m-account.php');
     die();

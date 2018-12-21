@@ -5,7 +5,7 @@ include '../util.php';
 handle_login();
 utf8();
 
-if (! isset($_GET['id'])) {
+if (empty($_GET['id'])) {
     die('删除食材，请输入食物的编号!');
 }
 
