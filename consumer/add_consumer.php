@@ -41,10 +41,18 @@ if (isset($_POST['id']) and isset($_POST['money'])) {
     $id = remove_unsafe_char($id);
     $money = remove_unsafe_char($money);
 
+    $sql = "select * from consumer where cid = '$id'";
+    $result = mysql_query($sql, $db);
+    $row = mysql_fetch_array($result);
+    if ('' == ! $row['cid'] ) {
+        echo '<script>alert("不允许添加同一个学生！");location="./m-consumer.php"</script>';
+        die(0);
+    }
+
     $sql = "insert into consumer values ('$id','$money')";
     $result = mysql_query($sql, $db);
     if (! $result) {
-        echo "<script>alert('该消费者已经存在或者没有这个学生。');</script>";
+        echo "<script>alert('没有这个学生！请先添加这个学生后重试。');</script>";
         header("refresh:0;url='../consumer/m-consumer.php';");
         die(0);
     } else {

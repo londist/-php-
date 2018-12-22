@@ -25,7 +25,7 @@ handle_login();
 utf8();
 
 if (empty($_POST['name']) or empty($_POST['price'])) {
-    echo '<script>alert("添加食物，名称，价格都不能为空！");location="./m-food.php"</script>';
+    echo '<script>alert("添加菜品，名称，价格都不能为空！");location="./m-food.php"</script>';
     die(0);
 }
 
@@ -41,15 +41,15 @@ $sql = "select * from food where name = '$name';";
 $result = mysql_query($sql, $db);
 $row = mysql_fetch_array($result);
 if ('' == ! $row['fid']) {
-    echo '<script>alert("不允许添加同名的食材！请尝试使用下方的编辑按钮。");location="./m-food.php"</script>';
+    echo '<script>alert("不允许添加同名的菜品！请尝试使用下方的编辑按钮。");location="./m-food.php"</script>';
     die(0);
 }
 
 $sql = "insert into food (name,description,price) values ('$name','$desc','$price');";
 $result = mysql_query($sql, $db);
 if (! $result) {
-    die('添加食物失败! '.mysql_error());
+    die('添加菜品失败! '.mysql_error());
 }
 
-echo "<script>alert('成功添加食物');location='./m-food.php'</script>";
+echo "<script>alert('成功添加菜品');location='./m-food.php'</script>";
 mysql_close($db);

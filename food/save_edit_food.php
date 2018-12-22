@@ -25,7 +25,7 @@ handle_login();
 utf8();
 
 if (empty($_POST['name']) or empty($_POST['price']) or empty($_POST['id'])) {
-    echo '<script>alert("修改食物，名称，价格都不能为空！");location="./m-food.php"</script>';
+    echo '<script>alert("修改菜品，名称，价格都不能为空！");location="./m-food.php"</script>';
     die(0);
 }
 
@@ -36,7 +36,7 @@ $price = $_POST['price'];
 $desc = isset($_POST['desc']) ? $_POST['desc'] : '';
 
 if (! is_numeric($id)) {
-    echo '<script>alert("食物的编号一定要是数字！");location="./m-food.php"</script>';
+    echo '<script>alert("菜品的编号一定要是数字！");location="./m-food.php"</script>';
     die(0);
 }
 
@@ -56,8 +56,8 @@ if ('' == ! $row['fid']) {
 $sql = "update food set name='$name',description='$desc',price=$price where fid='$id'; ";
 $result = mysql_query($sql, $db);
 if (! $result) {
-    die('修改食物信息失败! '.mysql_error());
+    die('修改菜品信息失败! '.mysql_error());
 }
 
-echo "<script>alert('成功修改食物信息');location='./m-food.php'</script>";
+echo "<script>alert('成功修改菜品信息');location='./m-food.php'</script>";
 mysql_close($db);

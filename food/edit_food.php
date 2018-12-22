@@ -4,33 +4,33 @@ include '../util.php';
 handle_login();
 utf8();
 if (empty($_GET['id'])) {
-    die('编辑食物，请输入食物的编号!');
+    die('编辑菜品，请输入菜品的编号!');
 }
 
 $id = $_GET['id'];
 if (! is_numeric($id)) {
-    die('食物的编号一定要是数字!');
+    die('菜品的编号一定要是数字!');
 }
 
 $id = remove_unsafe_char($id);
 $sql = "select * from food where fid='$id'";
 $result = mysql_query($sql, $db);
 if (! $result) {
-    die('查询食物信息失败! <br/>'.mysql_error());
+    die('查询菜品信息失败! <br/>'.mysql_error());
 }
 $row = mysql_fetch_array($result);
 if (! $row) {
-    die('没有该食物的信息!');
+    die('没有该菜品的信息!');
 }
 mysql_close($db);
 include '../template/header.html';
 ?>
-<section class="content-header"><h1>食物管理</h1></section>
+<section class="content-header"><h1>菜品管理</h1></section>
 <section class="content">
     <div class="row">
         <div class="col-md-12">
             <div class="box">
-                <div class="box-header">修改食物信息</div>
+                <div class="box-header">修改菜品信息</div>
                 <form action="save_edit_food.php" method="post">
                     <div class="box-body">
                         <div class="form-group">

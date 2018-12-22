@@ -25,20 +25,20 @@ handle_login();
 utf8();
 
 if (empty($_GET['id'])) {
-    die('删除食物，请输入食物的编号!');
+    die('删除菜品，请输入菜品的编号!');
 }
 
 $id = $_GET['id'];
 if (! is_numeric($id)) {
-    die('食物的编号一定要是数字!');
+    die('菜品的编号一定要是数字!');
 }
 
 $id = remove_unsafe_char($id);
 $sql = "delete from food where fid=$id";
 $result = mysql_query($sql, $db);
 if (! $result) {
-    die('删除食物失败! '.mysql_error());
+    die('删除菜品失败! '.mysql_error());
 }
 
-echo "<script>alert('删除食物成功！');location='./m-food.php'</script>";
+echo "<script>alert('删除菜品成功！');location='./m-food.php'</script>";
 mysql_close($db);

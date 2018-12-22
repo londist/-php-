@@ -7,17 +7,17 @@ utf8();
 $sql = 'select * from food';
 $result = mysql_query($sql, $db);
 if (! $result) {
-    die('查询食物失败 !'.mysql_error());
+    die('查询菜品失败 !'.mysql_error());
 }
 
 include '../template/header.html';
 ?>
-<section class="content-header"><h1>食物管理</h1></section>
+<section class="content-header"><h1>菜品管理</h1></section>
 <section class="content">
     <div class="row">
         <div class="col-md-12">
             <div class="box">
-                <div class="box-header">添加食物</div>
+                <div class="box-header">添加菜品</div>
                 <form action="add_food.php" method="post">
                     <div class="box-body">
                         <div class="form-group">
@@ -37,7 +37,7 @@ include '../template/header.html';
                         </div>
                     </div>
                     <div class="box-footer">
-                        <input type="submit" class="btn btn-primary" value="添加食物">
+                        <input type="submit" class="btn btn-primary" value="添加菜品">
                     </div>
                 </form>
             </div>
@@ -51,7 +51,7 @@ include '../template/header.html';
                     <table class="table table-hover">
                         <tr>
                             <th>序号</th>
-                            <th>食物名称</th>
+                            <th>菜品名称</th>
                             <th>价格</th>
                             <th>描述</th>
                             <th>操作</th>
