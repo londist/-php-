@@ -1,3 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>饭堂就餐管理系统</title>
+    <meta
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+      name="viewport"
+    />
+    <link
+      rel="stylesheet"
+      href="/assets/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="/assets/dist/css/AdminLTE.min.css" />
+  </head>
+  <body class="hold-transition login-page">
+    <div class="login-box">
+      <div class="login-box-body">
+      <h3 style="text-align:center">初始化中...</h3><br>
+
 <meta charset="utf-8" />
 <?php
 $username = 'root';
@@ -144,5 +165,15 @@ function add_admin()
 
 add_admin();
 ?>
-<br/><a href="/auth/login.html">登录</a>
+
+        <br><h3 style="text-align:center">初始化成功</h3><br>
+            <div style="text-align:center">
+                <a href="/auth/login.html" class="btn btn-primary" style="font-size:13px; text-align:center">登录</a>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/jquery/dist/jquery.min.js"></script>
+    <script src="/assets/bootstrap/dist/js/bootstrap.min.js"></script>
+    </body>
+</html>
 
