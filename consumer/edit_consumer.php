@@ -5,7 +5,7 @@ include '../util.php';
 handle_login();
 utf8();
 
-if (! isset($_GET['sid'])) {
+if (empty($_GET['sid'])) {
     die('请输入学号!');
 }
 

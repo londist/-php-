@@ -24,7 +24,7 @@ include '../util.php';
 handle_login();
 utf8();
 
-if (! isset($_POST['id']) or ! isset($_POST['money'])) {
+if (empty($_POST['id']) or empty($_POST['money'])) {
     echo '<script>alert("输入的编号和金额都不能为空！");location="./m-consumer.php"</script>';
     die(0);
 }

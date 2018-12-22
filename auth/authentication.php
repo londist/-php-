@@ -24,7 +24,7 @@
 include '../db_conn.php';
 include '../util.php';
 
-if (! isset($_POST['username']) or ! isset($_POST['password'])) {
+if (empty($_POST['username']) or empty($_POST['password'])) {
     header('Location: /auth/login.html');
 }
 

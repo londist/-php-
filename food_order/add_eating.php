@@ -6,7 +6,7 @@ m2_login();
 
 $sql = 'select * from food';
 $result = mysql_query($sql, $db);
-if (! isset($result)) {
+if (empty($result)) {
     die('查询食物失败<br/>'.mysql_error());
 }
 include '../template/header.html';

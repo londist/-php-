@@ -3,7 +3,7 @@
 include '../util.php';
 include '../db_conn.php';
 utf8();
-if (! isset($_POST['id']) or '' == $_POST['id']) {
+if (empty($_POST['id']) or '' == $_POST['id']) {
     die('请输入学号!');
 }
 
@@ -11,7 +11,7 @@ $id = remove_unsafe_char($_POST['id']);
 if (! is_numeric($id)) {
     die('学号要为数字!');
 }
-if (! isset($_POST['food'])) {
+if (empty($_POST['food'])) {
     die('请选择饭菜!');
 }
 $foods = $_POST['food'];

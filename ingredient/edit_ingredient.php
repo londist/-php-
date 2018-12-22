@@ -3,7 +3,7 @@ include '../db_conn.php';
 include '../util.php';
 handle_login();
 utf8();
-if (! isset($_GET['id'])) {
+if (empty($_GET['id'])) {
     die('编辑食材，请输入食材的编号!');
 }
 

@@ -5,7 +5,7 @@ include '../util.php';
 handle_login();
 header('Content-Type:text/html; charset=utf8');
 
-if (! isset($_GET['id'])) {
+if (empty($_GET['id'])) {
     die('请添加学号<br>');
 }
 

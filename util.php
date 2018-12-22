@@ -35,7 +35,7 @@ function handle_login()
 function m1_login()
 {
     session_start();
-    if (! isset($_SESSION['m1']) and ! isset($_SESSION['admin'])) {
+    if (empty($_SESSION['m1']) and empty($_SESSION['admin'])) {
         header('Location: /auth/login.html');
         exit;
     }
@@ -44,7 +44,7 @@ function m1_login()
 function m2_login()
 {
     session_start();
-    if (! isset($_SESSION['m2']) and ! isset($_SESSION['admin'])) {
+    if (empty($_SESSION['m2']) and empty($_SESSION['admin'])) {
         header('Location: auth/login.html');
         exit;
     }
@@ -75,7 +75,7 @@ function remove_unsafe_char($str)
 
 function referer($str)
 {
-    if (! isset($_SERVER['HTTP_REFERER'])) {
+    if (empty($_SERVER['HTTP_REFERER'])) {
         $url = $str;
     } else {
         $url = $_SERVER['HTTP_REFERER'];
