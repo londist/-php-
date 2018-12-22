@@ -10,17 +10,17 @@ if (empty($_GET['id'])) {
 
 $id = remove_unsafe_char($_GET['id']);
 if (! is_numeric($id)) {
-​    die('供应商编号一定要是数字!');
+    die('供应商编号一定要是数字！');
 }
 
 $sql = "select * from supplier where sid='$id'";
 $result = mysql_query($sql, $db);
 if (! $result) {
-​    die('查询供应商信息失败! '.mysql_error());
+    die('查询供应商信息失败！'.mysql_error());
 }
 $row = mysql_fetch_array($result);
 if (! $row) {
-​    die('数据库没有该供应商的信息!');
+    die('数据库没有改供应商的信息！');
 }
 mysql_close($db);
 include '../template/header.html';

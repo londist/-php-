@@ -5,12 +5,50 @@ utf8();
 m2_login();
 
 if ( empty($_GET['id'])) {
-    die('请输入学号');
+    echo '<html>
+    <head>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <title>饭堂就餐管理系统</title>
+      <meta
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+        name="viewport"
+      />
+      <link rel="stylesheet" href="/assets/dist/css/AdminLTE.min.css" />
+    </head>
+  
+      <body class="hold-transition login-page">
+          <div style="margin-top:180px">
+              <div class="login-logo">正 在 跳 转 . . .</div>
+          </div>
+      </body>
+    </html>';
+    echo '<script>alert("请输入学号！");location="./showall_consumption_record.php"</script>';
+    die(0);
 }
 
 $id = remove_unsafe_char($_GET['id']);
 if (! is_numeric($id)) {
-    die('学号一定要是数字');
+    echo '<html>
+    <head>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <title>饭堂就餐管理系统</title>
+      <meta
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+        name="viewport"
+      />
+      <link rel="stylesheet" href="/assets/dist/css/AdminLTE.min.css" />
+    </head>
+  
+      <body class="hold-transition login-page">
+          <div style="margin-top:180px">
+              <div class="login-logo">正 在 跳 转 . . .</div>
+          </div>
+      </body>
+    </html>';
+    echo '<script>alert("学号一定要是数字！");location="./showall_consumption_record.php"</script>';
+    die(0);
 }
 
 $sql = "select * from consumption_record where cid='$id'";

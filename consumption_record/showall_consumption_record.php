@@ -38,8 +38,8 @@ include '../template/header.html';
                 <div class="box-body">
                     <table class="table table-hover">
                         <tr>
-                            <th>序号</th>
                             <th>编号</th>
+                            <th>学号</th>
                             <th>消费类型</th>
                             <th>金额</th>
                             <th>时间</th>
